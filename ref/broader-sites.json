@@ -1,0 +1,27 @@
+{
+  "researchedAt": "2026-10-04",
+  "scope": "personal homepages, hobby communities, remote local sites, small specialist shops",
+  "sites": [
+    {"country":"DK","name":"Webhistorie.dk","url":"https://webhistorie.dk/","type":"web history project","retroStrength":5,"signals":["visitor counter","guestbook","last updated","text version"]},
+    {"country":"DK","name":"Riddersholm Legacy Web","url":"https://www.riddersholm.dk/legacy-web/","type":"personal site archive","retroStrength":5,"signals":["FrontPage archive","personal history","legacy navigation"]},
+    {"country":"DK","name":"Godstoget Hobby","url":"https://godstoget-hobby.dk/","type":"hobby shop","retroStrength":4,"signals":["SMS pickup","manual payment","used listings","owner voice"]},
+    {"country":"DK","name":"AntikRetroDesign","url":"https://antikretrodesign.dk/","type":"vintage shop","retroStrength":3,"signals":["dense categories","emoji labels","opening hours","product grid"]},
+    {"country":"DE","name":"Heimatverein Michelbach guestbook","url":"https://www.heimatverein-michelbach.de/gaestebuch/","type":"local history society","retroStrength":5,"signals":["2002 guestbook","encoding artifacts","resident comments"]},
+    {"country":"DE","name":"Heimatverein Höpfingen","url":"https://www.heimatverein-hoepfingen.de/vereine/heimatverein/index.html","type":"local history society","retroStrength":4,"signals":["low membership fee","museum","genealogy","publications","guestbook"]},
+    {"country":"DE","name":"Schneeren","url":"https://www.schneeren.de/","type":"village portal","retroStrength":4,"signals":["events","newcomer guide","community house","guestbook"]},
+    {"country":"DE","name":"Andy's Eck","url":"https://www.andyseck.de/","type":"model railway shop","retroStrength":4,"signals":["owner hobby story","opening hours","used goods","external marketplace links"]},
+    {"country":"DE","name":"MikroModellBau","url":"https://www.mikromodellbau.de/","type":"model making shop","retroStrength":4,"signals":["dense catalog","login","legal documents","old homepage link"]},
+    {"country":"NO","name":"Sundet TruckStop guestbook","url":"https://www.sundet.no/gbok.htm","type":"personal truck hobby site","retroStrength":5,"signals":["1996 guestbook","bilingual instructions","HTML comments","encoding artifacts"]},
+    {"country":"NO","name":"Vikjavev guestbook","url":"https://www.vikjavev.no/gjestebok/","type":"local community site","retroStrength":5,"signals":["monthly archives","guestbook closed notice","spam history"]},
+    {"country":"NO","name":"Spillum Johnsens","url":"https://www.spillum.com/","type":"farm family homepage","retroStrength":5,"signals":["family history","farm history","birdwatching","garden","guestbook"]},
+    {"country":"NO","name":"Kristian Skaane Web Archive","url":"https://www.kristska.com/","type":"personal web archive","retroStrength":4,"signals":["handwritten HTML","hobby projects","personal archive"]},
+    {"country":"SE","name":"Rikard & Björn GeoCities mirror","url":"https://www.geocities.ws/server2/homestead/southbeach/9251/","type":"personal homepage","retroStrength":5,"signals":["1997 design","visitor counter","photos","sign guestbook"]},
+    {"country":"SE","name":"Hans Högman guestbook","url":"https://www.hhogman.se/guestbook.htm","type":"genealogy hobby site","retroStrength":5,"signals":["1997 archive","bilingual instructions","guestbook"]},
+    {"country":"SE","name":"Kullarmark 2004 archive","url":"https://web.archive.org/web/20040825181702/http://www.kullarmark.se/","type":"tiny village homepage","retroStrength":5,"signals":["remote place identity","2004 snapshot","village information"]},
+    {"country":"SE","name":"neverready","url":"https://neverready.peter.stream/","type":"restored personal web projects","retroStrength":5,"signals":["1996-2002 projects","diary","travel album","guestbook","last updated"]},
+    {"country":"FI","name":"Höljäkkä","url":"https://www.holjakka.fi/","type":"remote village homepage","retroStrength":5,"signals":["online since 1998","last updated","local events","library bus","recycling","mailing list"]},
+    {"country":"FI","name":"Jake's Sitefolio","url":"https://jake.laisi.net/sitefolio/","type":"personal digital museum","retroStrength":4,"signals":["decades of projects","personal archive","site history"]},
+    {"country":"FI","name":"Juha's homecave","url":"https://www.sievi-korte.net/?page_id=6","type":"personal hobby homepage","retroStrength":4,"signals":["music","electronics","computers","cooking","photography"]},
+    {"country":"FI","name":"Pellinge Cottages","url":"https://pellingecottages.fi/en/","type":"remote island accommodation","retroStrength":3,"signals":["island stories","kayaking","rowing","guestbook"]}
+  ]
+}

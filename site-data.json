@@ -2,14 +2,14 @@
   "meta": {
     "siteName": "한국 아마추어 카누 클럽",
     "shortName": "KACC",
-    "logo": "assets/images/kacc-logo.png",
+    "logo": "assets/images/kacc-logo-taegeuk.png",
     "englishName": "Korea Amateur Canoe Club",
     "webmaster": "정진기",
     "tagline": "강과 바다를 천천히 읽는 사람들의 모임",
     "description": "이제 막 문을 연 한국 아마추어 카누 클럽입니다. 카누를 처음 만나는 사람부터 오래 노를 저어 온 사람까지 함께 물길의 정보와 이야기를 만들어 갑니다.",
     "established": "2026",
     "location": "대한민국의 강과 호수",
-    "email": "paddle@example.org",
+    "email": "kacc.webmaster@gmail.com",
     "updated": "2026-10-04"
   },
   "rotation": {

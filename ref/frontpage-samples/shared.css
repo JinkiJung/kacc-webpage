@@ -1,0 +1,386 @@
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { margin: 0; color: #171717; }
+img { max-width: 100%; height: auto; }
+a { color: inherit; }
+button, input { font: inherit; }
+.skip { position:absolute; left:-9999px; }
+.skip:focus { left:8px; top:8px; z-index:100; background:#fff; color:#000; padding:8px; }
+.sample-switcher { position:fixed; right:8px; bottom:8px; z-index:50; padding:5px 8px; background:#ffffd6; color:#111; border:1px solid #665; font:12px Arial,sans-serif; text-decoration:none; }
+.plain-list { list-style:none; margin:0; padding:0; }
+.plain-list li + li { margin-top:5px; }
+.photo-caption { font-size:12px; margin:3px 0 12px; }
+.statusline { font-size:12px; }
+.retro-link { text-decoration:underline; cursor:pointer; }
+.shared-gallery { clear:both; margin:34px 0 16px; padding-top:14px; border-top:3px double currentColor; text-align:left; }
+.shared-gallery > h2 { margin:0 0 14px; }
+.gallery-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.gallery-grid figure { margin:0; min-width:0; }
+.gallery-grid img { display:block; width:100%; aspect-ratio:4/3; object-fit:cover; border:1px solid #555; }
+.gallery-grid figcaption { padding:5px 1px 12px; font-size:13px; line-height:1.35; }
+.shared-gallery > p { margin:5px 0 0; text-align:right; }
+.s02 .shared-gallery { max-width:760px; margin-inline:auto; color:white; }
+.s02 .gallery-grid figure { padding:5px; background:#173690; border:2px ridge #8db8ff; }
+.s06 .shared-gallery,.s14 .shared-gallery { grid-column:1/-1; }
+.s14 .shared-gallery { padding:20px; color:#263544; background:#eef3f8; border-top:5px solid #315f93; }
+.s14 .shared-gallery a { color:#194c78; }
+
+/* 01 — Riddersholm weighted */
+.s01 { background:#f5f2df; font:16px Georgia,"Times New Roman",serif; }
+.s01 a { color:#087a36; text-decoration:underline; }
+.s01 .page { width:min(1180px,100%); margin:0 auto; display:grid; grid-template-columns:150px 1fr; gap:24px; padding:12px; }
+.s01 .side { padding-top:4px; }
+.s01 .tiny-logo { height:66px; border:1px solid #998b53; display:grid; place-items:center; color:#064f2b; background:#e7e4cd; font-size:13px; margin-bottom:10px; }
+.s01 .nav a { display:block; text-align:center; padding:8px 2px; border-top:1px solid #c8b667; color:#222; text-decoration:none; font-size:13px; }
+.s01 .nav a:last-child { border-bottom:1px solid #c8b667; }
+.s01 .banner { text-align:center; font-size:34px; border-top:3px solid #bca456; padding:4px; margin-bottom:18px; }
+.s01 h1,.s01 h2 { color:#075f32; }
+.s01 h1 { font-size:28px; margin:0 0 8px; }
+.s01 h2 { font-size:24px; margin:26px 0 8px; text-decoration:underline; }
+.s01 .portrait { width:230px; float:right; margin:0 0 16px 24px; border:1px solid #444; }
+.s01 .signature { font-family:"Comic Sans MS",cursive; margin-left:28px; }
+.s01 .news { display:grid; grid-template-columns:150px 1fr; gap:20px; align-items:start; }
+.s01 .news img { border:1px solid #777; }
+.s01 footer { clear:both; border-top:1px solid #bca456; margin-top:30px; padding:14px 0; text-align:center; }
+
+/* 02 — Sundet weighted */
+.s02 { min-height:100vh; color:white; font:16px Times,"Times New Roman",serif; text-align:center; background-color:#071064; background-image:linear-gradient(90deg,rgba(34,66,185,.48) 1px,transparent 1px),linear-gradient(rgba(34,66,185,.48) 1px,transparent 1px),radial-gradient(circle at 2px 2px,#2444b6 1px,transparent 1.5px); background-size:8px 8px,8px 8px,4px 4px; }
+.s02 a { color:#fff; font-weight:bold; text-decoration:underline; }
+.s02 a:visited { color:#fff600; }
+.s02 .wrap { width:min(820px,96%); margin:auto; padding:15px 8px 50px; }
+.s02 .legacy-center { display:block; width:100%; }
+.s02 .guestbook-title { min-height:61px; display:flex; justify-content:center; align-items:center; gap:12px; }
+.s02 .devil { width:62px; height:61px; display:inline-grid; place-items:center; flex:0 0 62px; overflow:hidden; font-size:43px; line-height:1; vertical-align:middle; background:#fff; border:2px outset #c9c9c9; }
+.s02 h1 { display:inline; margin:0; color:#ff4538; font-weight:normal; font-size:46px; line-height:1; text-shadow:2px 2px #03072c; }
+.s02 .clubname { margin:8px 0 14px; font-size:19px; }
+.s02 h2 { font-size:28px; }
+.s02 .road { width:min(640px,100%); height:10px; margin:8px auto 34px; border-block:2px solid #e5dd63; background:repeating-linear-gradient(90deg,#080808 0 14px,#d9d15b 14px 22px); }
+.s02 .big-links a { font-size:27px; display:block; }
+.s02 .years { margin:30px 0; font-size:20px; }
+.s02 .notice { max-width:680px; margin:25px auto; }
+.s02 .sundet-cards { width:min(760px,100%); margin:28px auto 22px; display:grid; grid-template-columns:repeat(3,1fr); gap:14px; text-align:left; }
+.s02 .sundet-cards article { min-height:150px; padding:14px 16px; color:#fff; background:#173690; border:2px ridge #8db8ff; box-shadow:5px 5px #03072c; }
+.s02 .sundet-cards h3 { margin:0 0 10px; color:#fff56c; font:22px Times,"Times New Roman",serif; }
+.s02 .sundet-cards p { margin:0 0 8px; line-height:1.35; }
+.s02 .photo { width:min(620px,100%); border:3px ridge #d9d15b; }
+.s02 table { margin:15px auto 30px; color:white; border-collapse:collapse; }
+.s02 td { padding:5px 12px; border-bottom:1px dotted white; }
+
+/* 03 — Dömitz weighted */
+.s03 { background:#eee; font:14px Arial,sans-serif; }
+.s03 a { color:#8d140e; }
+.s03 .shell { width:min(1020px,100%); margin:auto; background:#fff; border-inline:1px solid #aaa; }
+.s03 .hero { height:230px; position:relative; overflow:hidden; color:white; }
+.s03 .hero img { width:100%; height:100%; object-fit:cover; }
+.s03 .hero h1 { position:absolute; left:25px; top:12px; margin:0; font-size:34px; text-shadow:0 2px 2px #000; }
+.s03 .hero p { position:absolute; left:27px; top:54px; font-size:18px; font-weight:bold; text-shadow:0 1px 2px #000; }
+.s03 .columns { display:grid; grid-template-columns:205px minmax(0,1fr) 230px; gap:20px; padding:0 10px 25px; }
+.s03 .redbar { color:#fff; background:linear-gradient(#ef3429,#9e0c09); padding:8px 10px; font-weight:bold; margin:0 0 8px; }
+.s03 .leftnav a { display:block; color:#fff; text-decoration:none; background:linear-gradient(#ef3d32,#ad100a); padding:11px; margin-bottom:3px; border-radius:0 6px 6px 0; }
+.s03 .schedule,.s03 .info,.s03 .newsbox { border:1px solid #ddd; margin-top:18px; }
+.s03 .boxbody { padding:10px; }
+.s03 .main { padding-top:18px; }
+.s03 .main h2 { margin:0 0 6px; }
+.s03 .main-photo { width:100%; border:1px solid #777; }
+.s03 .right { padding-top:18px; }
+.s03 .newsbox img { width:100%; display:block; }
+.s03 footer { padding:12px; border-top:4px solid #b31811; font-size:12px; }
+
+/* 04 — Riesa weighted */
+.s04 { background:#f1f0fa; font:15px Arial,sans-serif; }
+.s04 a { color:#277b78; }
+.s04 .page { width:min(820px,100%); padding:8px 12px 40px; }
+.s04 .line-logo { position:relative; font-size:28px; font-style:italic; font-weight:bold; padding-left:70px; border-bottom:5px solid #54b4ae; width:590px; max-width:100%; }
+.s04 .line-logo::after { content:""; position:absolute; right:-6px; bottom:-15px; width:28px; height:28px; background:#a43a32; border:5px solid #58c5bd; border-radius:50%; }
+.s04 h1 { font-size:31px; }
+.s04 .grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.s04 figure { margin:0 0 12px; }
+.s04 figure img { width:100%; aspect-ratio:4/3; object-fit:cover; border:1px solid #555; }
+.s04 figcaption { margin-top:4px; font-size:13px; }
+.s04 .privacy { margin-top:24px; padding-top:12px; border-top:3px double #777; font-size:12px; line-height:1.35; }
+
+/* 05 — PALO weighted */
+.s05 { background:white; color:#25477d; font:16px Arial,sans-serif; }
+.s05 .shell { width:min(1000px,100%); margin:auto; }
+.s05 .top { background:#203b8f; color:white; padding:10px 18px; display:flex; gap:24px; align-items:center; }
+.s05 .top strong { font-size:21px; border:3px double white; padding:8px; transform:rotate(-3deg); }
+.s05 .top a { color:white; text-decoration:none; font-size:12px; text-transform:uppercase; }
+.s05 .wide-photo { height:210px; width:100%; object-fit:cover; object-position:center 55%; }
+.s05 main { padding:38px 45px; max-width:850px; }
+.s05 .docbar { background:#3265a4; color:white; padding:6px 12px; display:flex; flex-wrap:wrap; gap:28px; margin:18px 0 36px; font-size:20px; }
+.s05 article { color:#222; margin:0 0 45px; }
+.s05 article h2 { color:#2f5d96; }
+.s05 article img { width:75%; min-width:300px; border:1px solid #aaa; }
+.s05 .safety { border-left:10px solid #e2a516; background:#fff8d2; padding:10px 16px; }
+
+/* 06 — Esrum operational */
+.s06 { background:#d9e8f3; font:15px Arial,sans-serif; color:#153c5e; }
+.s06 .shell { width:min(1040px,100%); margin:auto; background:#fff; }
+.s06 .top { background:#1e699c; color:#fff; display:flex; gap:20px; padding:12px 18px; }
+.s06 .top a { color:#fff; text-decoration:none; }
+.s06 .hero { height:260px; position:relative; overflow:hidden; background:#2878ae; }
+.s06 .hero img { width:100%; height:100%; object-fit:cover; opacity:.86; }
+.s06 .hero h1 { position:absolute; left:28px; bottom:18px; color:white; text-shadow:2px 2px #16344c; font-size:38px; }
+.s06 .quick { display:grid; grid-template-columns:repeat(3,1fr); background:#4394c7; color:#fff; text-align:center; }
+.s06 .quick div { padding:22px 8px; border-right:1px dotted white; font-size:20px; }
+.s06 .dashboard { padding:30px; display:grid; grid-template-columns:1fr 1.2fr; gap:28px; }
+.s06 .weather { border:2px solid #276e99; padding:15px; display:grid; grid-template-columns:1fr 1fr; gap:12px; }
+.s06 .calendar h2,.s06 .weather h2 { grid-column:1/-1; margin:0; }
+.s06 .event { display:grid; grid-template-columns:95px 1fr 24px; background:#4698cb; color:white; margin:5px 0; padding:10px; border-right:22px solid #111; }
+.s06 .links { padding:0 30px 30px; display:grid; grid-template-columns:repeat(4,1fr); gap:8px; }
+.s06 .links a { border:1px solid #3d7da6; padding:8px; text-align:center; }
+
+/* 07 — GLX board wall */
+.s07 { background:#fff; font:15px Arial,sans-serif; color:#111; }
+.s07 header { height:300px; padding:25px; display:flex; justify-content:space-between; align-items:flex-start; position:relative; overflow:hidden; background:#183b91 url('assets/photos/river-paddle.png') center 52%/cover no-repeat; }
+.s07 header::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(5,21,61,.74),rgba(5,21,61,.12) 58%,rgba(5,21,61,.42)); }
+.s07 .roundlogo { width:130px; height:130px; display:grid; place-items:center; position:relative; z-index:1; color:white; background:rgba(18,47,119,.78); border:5px double white; border-radius:50%; text-align:center; font-weight:bold; text-shadow:0 1px 2px #000; }
+.s07 .login { position:relative; z-index:1; padding:7px 10px; color:white; background:rgba(18,47,119,.8); border:1px solid rgba(255,255,255,.75); }
+.s07 .boards { padding:0 18px 40px; display:grid; grid-template-columns:1fr 1fr 1fr; gap:26px; }
+.s07 .board { background:#243f9a; color:white; padding:18px; align-self:start; }
+.s07 .board h2 { font-size:28px; margin-top:0; }
+.s07 .post { border-top:1px solid #8fa4ed; padding:13px 0; }
+.s07 .post time { font-size:11px; }
+.s07 .board a { color:#a9c2ff; }
+.s07 .board img { border:2px solid white; }
+.s07 .subscribe { float:right; background:white; color:#111; border:1px solid #888; padding:4px; }
+
+/* 08 — Pilen small office */
+.s08 { background:#dedede; font:16px Arial,sans-serif; }
+.s08 .hero { height:175px; background:url('assets/photos/group-clubhouse.png') center 36%/cover; position:relative; }
+.s08 .hero h1 { position:absolute; left:20px; bottom:14px; margin:0; background:rgba(255,255,255,.8); padding:8px; }
+.s08 .page { width:min(1000px,100%); margin:auto; padding:30px 18px; display:grid; grid-template-columns:minmax(0,1fr) 315px; gap:30px; }
+.s08 .lead-photo { border:12px solid white; width:100%; }
+.s08 .sidebox { background:#fff; border:2px solid #555; padding:16px; margin-bottom:16px; }
+.s08 .sidebox h2 { font-size:31px; margin:0 0 10px; }
+.s08 .course { display:grid; grid-template-columns:1fr 75px; gap:8px; padding:13px 0; border-top:1px solid #ccc; }
+.s08 .course button { background:#257af2; border:0; color:#fff; padding:8px; }
+.s08 .activities { grid-column:1/-1; background:#fff; border:2px solid #555; padding:18px; }
+.s08 .activities table { width:100%; border-collapse:collapse; }
+.s08 td { border-bottom:1px solid #bbb; padding:8px; }
+
+/* 09 — KARL + Dömitz + PALO */
+.s09 { background:#ececec; color:#222; font:14px Arial,sans-serif; }
+.s09 .utility { padding:7px calc((100% - 1080px)/2 + 18px); color:#ddd; background:#303030; text-align:right; font-size:12px; }
+.s09 .federation-head { width:min(1080px,100%); margin:auto; display:flex; align-items:center; gap:18px; padding:22px 18px; background:#fff; }
+.s09 .federation-head h1 { margin:0; color:#18335f; font-size:30px; }
+.s09 .federation-head p { margin:4px 0 0; color:#777; letter-spacing:1px; }
+.s09 .diamond { width:70px; height:70px; display:grid; place-items:center; color:#fff; background:#234a84; border:7px double #fff; outline:2px solid #234a84; transform:rotate(45deg); font-weight:bold; text-align:center; }
+.s09 .diamond br,.s09 .diamond { line-height:16px; }
+.s09 .diamond { text-shadow:0 1px #000; }
+.s09 .mega { width:min(1080px,100%); margin:auto; display:grid; grid-template-columns:repeat(6,1fr); background:#193a6d; }
+.s09 .mega a { padding:15px 6px; color:white; text-align:center; text-decoration:none; border-right:1px solid #55719b; font-weight:bold; }
+.s09 .federation-hero { width:min(1080px,100%); height:270px; margin:auto; position:relative; overflow:hidden; }
+.s09 .federation-hero img { width:100%; height:100%; object-fit:cover; }
+.s09 .federation-hero div { position:absolute; inset:auto 0 0; padding:17px 30px; color:#fff; background:rgba(15,32,57,.82); font-size:17px; }
+.s09 .portal3 { width:min(1080px,100%); margin:auto; padding:22px 16px; display:grid; grid-template-columns:repeat(3,1fr); gap:15px; background:#f5f5f5; }
+.s09 .portal3 section { min-height:205px; padding:14px 17px; background:#fff; border-top:4px solid #234a84; box-shadow:0 1px 4px #bbb; }
+.s09 .portal3 h2 { margin-top:0; font-size:18px; }
+.s09 .portal3 li { margin:8px 0; }
+.s09 .iconlinks { width:min(1080px,100%); margin:auto; display:grid; grid-template-columns:repeat(6,1fr); border-top:1px solid #ccc; background:#fff; }
+.s09 .iconlinks a { padding:20px 5px; color:#333; text-align:center; text-decoration:none; border-right:1px solid #ddd; }
+.s09 .popup-note { position:fixed; right:4vw; bottom:38px; width:245px; padding:15px; background:#fff; border:5px solid #203f72; box-shadow:0 8px 30px #555; z-index:3; }
+.s09 .popup-note h2 { margin:0 0 8px; color:#203f72; }
+
+/* 10 — Jul i Dannevang + Riddersholm + Riesa */
+.s10 { background:#f6f2e8; color:#30261f; font:16px Georgia,serif; }
+.s10 .season-head { padding:18px; text-align:center; background:#fffdf8; border-bottom:4px double #b7271e; }
+.s10 .garland,.s10 .leafline { color:#a91f1a; letter-spacing:12px; }
+.s10 .season-head h1 { margin:9px 0; color:#23603e; font:38px "Comic Sans MS",cursive; }
+.s10 .mosaic { width:min(1040px,100%); margin:20px auto; display:grid; grid-template-columns:repeat(3,1fr); }
+.s10 .mosaic figure { height:210px; margin:0; position:relative; overflow:hidden; border:4px solid #fff; }
+.s10 .mosaic img { width:100%; height:100%; object-fit:cover; filter:saturate(.78); }
+.s10 .mosaic figcaption { position:absolute; inset:auto 0 0; padding:9px; color:#fff; background:rgba(108,20,18,.78); font-weight:bold; }
+.s10 .story-layout { width:min(960px,calc(100% - 30px)); margin:28px auto 55px; display:grid; grid-template-columns:220px 1fr; gap:34px; }
+.s10 .story-layout aside { border-right:1px dashed #9b8a6b; }
+.s10 .story-layout aside a { color:#9b1e18; }
+.s10 .story-layout main { line-height:1.72; }
+.s10 .story-layout main h1 { color:#1d5938; font-size:32px; }
+.s10 .story-layout main img { width:48%; float:right; margin:0 0 15px 24px; padding:6px; background:white; border:1px solid #9d927b; transform:rotate(1deg); }
+
+/* 11 — Sundet + Esrum + GLX */
+.s11 { min-height:100vh; color:#fff; background:#07135f; font:15px Arial,sans-serif; }
+.s11 a { color:#fff56c; }
+.s11 .night-head { padding:25px 15px 12px; text-align:center; background:repeating-linear-gradient(0deg,#08135c 0 7px,#102b9b 8px 14px); }
+.s11 .night-head h1 { margin:0; color:#ff5449; font:34px Georgia,serif; }
+.s11 .road { width:min(620px,85%); height:10px; margin:14px auto; border-block:2px solid #f5e55b; background:repeating-linear-gradient(90deg,#111 0 18px,#d8c943 18px 27px); }
+.s11 .station-quick { display:grid; grid-template-columns:repeat(4,1fr); background:#1373bb; border-block:2px solid #62b6ed; text-align:center; }
+.s11 .station-quick div { padding:18px 8px; border-right:1px dotted white; font-size:18px; }
+.s11 .station-boards { width:min(1120px,96%); margin:26px auto; display:grid; grid-template-columns:repeat(3,1fr); gap:18px; }
+.s11 .station-boards section { padding:17px; background:#16348e; border:2px ridge #8bb7ff; box-shadow:5px 5px #03082f; }
+.s11 .station-boards h2 { margin-top:0; color:#fff56c; }
+.s11 .station-boards li { margin:10px 0; }
+.s11 .station-boards img { width:100%; border:2px solid white; }
+.s11 .yearbar { padding:18px; text-align:center; color:#fff56c; border-top:1px dotted white; }
+
+/* 12 — Riddersholm + PALO + Pilen */
+.s12 { background:#d8d3c4; color:#302d22; font:15px Arial,sans-serif; }
+.s12 .office-shell { width:min(1080px,100%); margin:auto; display:grid; grid-template-columns:165px minmax(0,1fr) 270px; background:#fffdf0; border-inline:1px solid #777; }
+.s12 .office-shell > aside:first-child { padding:18px 10px; background:#365f36; color:white; }
+.s12 .office-logo { padding:12px; margin-bottom:16px; border:3px double #fff; text-align:center; font:24px Georgia,serif; }
+.s12 .office-shell nav a { display:block; margin:4px 0; padding:9px; color:#173214; background:#e9dfb6; border:2px outset #fff; text-decoration:none; }
+.s12 .office-shell main { padding:25px 30px 55px; line-height:1.55; }
+.s12 .office-shell main h1 { color:#315b34; font:32px Georgia,serif; }
+.s12 .hand { color:#8d2b23; font:20px "Comic Sans MS",cursive; }
+.s12 .office-photo { width:100%; padding:7px; background:#fff; border:1px solid #777; }
+.s12 .office-shell main article { border-top:1px dotted #766; }
+.s12 .course-desk { padding:18px; background:#eee9d8; border-left:1px solid #aaa; }
+.s12 .course-desk > div { margin-bottom:12px; padding:11px; background:white; border:1px solid #938b71; }
+.s12 .course-desk button { display:block; margin-top:8px; padding:5px 12px; color:white; background:#3565a7; border:0; }
+.s12 .course-desk > a { display:block; margin:8px 0; }
+
+/* 13 — Dömitz + Riesa + Sundet */
+.s13 { background:#e6e6e6; color:#222; font:14px Arial,sans-serif; }
+.s13 .archive-shell { width:min(980px,100%); margin:auto; background:white; }
+.s13 .archive-shell > header { height:230px; position:relative; overflow:hidden; }
+.s13 .archive-shell > header img { width:100%; height:100%; object-fit:cover; }
+.s13 .archive-shell > header h1 { position:absolute; left:25px; bottom:15px; margin:0; padding:8px 14px; color:white; background:#a61c16; font:32px Georgia,serif; }
+.s13 .archive-shell > nav { display:flex; background:#ac2019; }
+.s13 .archive-shell > nav a { padding:12px 20px; color:white; text-decoration:none; border-right:1px solid #d87a74; }
+.s13 .archive-shell > main { display:grid; grid-template-columns:minmax(0,1fr) 190px; gap:24px; padding:25px; }
+.s13 .archive-shell > main > aside { padding:12px; background:#f0ece1; border:1px solid #bbb; border-left:4px double #998b72; align-self:start; }
+.s13 .archive-grid { display:grid; grid-template-columns:1fr 1fr; gap:14px; }
+.s13 .archive-grid figure { margin:0; }
+.s13 .archive-grid img { width:100%; aspect-ratio:4/3; object-fit:cover; border:1px solid #555; }
+.s13 .archive-grid figcaption { padding:5px 0 14px; }
+.s13 .archive-shell > footer { padding:20px; color:white; text-align:center; background:#102487; }
+.s13 .archive-shell > footer a { color:#fff36a; }
+
+/* 14 — KARL + GLX + Esrum */
+.s14 { background:#edf1f4; color:#263544; font:14px Arial,sans-serif; }
+.s14 .league { width:min(1120px,100%); margin:auto; background:#fff; box-shadow:0 0 12px #aab2b8; }
+.s14 .league-util { padding:7px 18px; color:white; text-align:right; background:#27384d; font-size:12px; }
+.s14 .league .league-photo-head { height:300px; display:flex; align-items:flex-start; gap:22px; position:relative; overflow:hidden; padding:27px 30px; color:white; background:#183b91 url('assets/photos/river-paddle.png') center 52%/cover no-repeat; }
+.s14 .league .league-photo-head::after { content:""; position:absolute; inset:0; background:linear-gradient(90deg,rgba(5,21,61,.78),rgba(5,21,61,.12) 62%,rgba(5,21,61,.38)); }
+.s14 .league .league-photo-head > * { position:relative; z-index:1; }
+.s14 .league .league-photo-head h1 { margin:18px 0 4px; color:white; font-size:34px; text-shadow:0 2px 3px #000; }
+.s14 .league .league-photo-head p { margin:0; font-size:17px; text-shadow:0 1px 2px #000; }
+.s14 .badge { width:105px; height:105px; display:grid; flex:0 0 105px; place-items:center; color:white; background:rgba(25,76,120,.82); border-radius:50%; border:7px double white; outline:2px solid rgba(25,76,120,.82); font-weight:bold; }
+.s14 .league > nav { display:grid; grid-template-columns:repeat(6,1fr); background:#194c78; }
+.s14 .league > nav a { padding:14px 5px; color:white; text-align:center; text-decoration:none; border-right:1px solid #4c789b; }
+.s14 .league-status { display:grid; grid-template-columns:repeat(3,1fr); color:white; background:#4291bf; text-align:center; }
+.s14 .league-status div { padding:16px; border-right:1px dotted white; }
+.s14 .league .federation-boards { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; padding:25px 20px 45px; background:#fff; }
+.s14 .federation-board { min-width:0; padding:19px; align-self:start; color:white; background:#243f9a; }
+.s14 .federation-board h2 { margin:0 0 14px; font-size:28px; }
+.s14 .federation-board h3 { margin:6px 0; font-size:17px; }
+.s14 .federation-board .post { padding:13px 0; border-top:1px solid #8fa4ed; }
+.s14 .federation-board .post time { font-size:11px; }
+.s14 .federation-board a { color:#b8caff; }
+.s14 .league-event { border-bottom:0; }
+
+/* 15 — Jul i Dannevang + PALO + Riesa */
+.s15 { background:#fbf8ee; color:#332b24; font:16px Georgia,serif; }
+.s15 .mag-head { padding:25px; text-align:center; }
+.s15 .mag-head h1 { margin:8px; color:#98211b; font:42px "Comic Sans MS",cursive; }
+.s15 .leafline { color:#24623d; letter-spacing:13px; }
+.s15 .mag-grid { display:grid; grid-template-columns:repeat(3,1fr); width:min(1100px,100%); margin:auto; }
+.s15 .mag-grid figure { height:210px; margin:0; position:relative; overflow:hidden; }
+.s15 .mag-grid img { width:100%; height:100%; object-fit:cover; }
+.s15 .mag-grid figcaption { position:absolute; inset:auto 0 0; padding:12px; color:white; background:linear-gradient(transparent,rgba(0,0,0,.85)); font-weight:bold; }
+.s15 .pdf-ribbon { width:min(1100px,100%); margin:auto; padding:11px; display:flex; justify-content:center; gap:25px; background:#a52b22; }
+.s15 .pdf-ribbon a { color:white; }
+.s15 .mag-body { width:min(960px,calc(100% - 32px)); margin:34px auto; display:grid; grid-template-columns:minmax(0,1fr) 235px; gap:40px; line-height:1.65; }
+.s15 .mag-body article { clear:both; padding:18px 0; border-top:1px dotted #9c8d78; overflow:auto; }
+.s15 .mag-body article img { width:42%; float:left; margin:0 18px 10px 0; padding:5px; background:white; border:1px solid #999; }
+.s15 .mag-body aside { padding-left:20px; border-left:1px solid #c7bda7; }
+.s15 .mag-body aside a { color:#8d231d; }
+
+/* 16 — Riddersholm + Sundet + Dömitz */
+.s16 { background:#d5d1b8; color:#20251b; font:15px Arial,sans-serif; }
+.s16 .deep-retro { width:min(1040px,100%); margin:auto; background:#fffbea; border-inline:1px solid #726d51; }
+.s16 .deep-retro > header { padding:18px 24px; display:grid; grid-template-columns:80px 1fr; color:white; background:#28562e; }
+.s16 .deep-retro > header h1 { margin:3px 0; font:31px Georgia,serif; }
+.s16 .deep-retro > header p { margin:0; }
+.s16 .paddlemark { grid-row:1/3; font-size:48px; }
+.s16 .retro3 { display:grid; grid-template-columns:165px minmax(0,1fr) 235px; }
+.s16 .retro3 > aside:first-child { padding:12px; background:#eee5bb; }
+.s16 .retro3 nav a { display:block; padding:9px; margin-bottom:4px; color:white; background:#4a743d; border:2px outset #8ca179; text-decoration:none; }
+.s16 .retro3 main { padding:25px; line-height:1.55; }
+.s16 .retro3 main > img { width:100%; border:7px ridge #e1d29b; }
+.s16 .retro3 main h2 { color:#31522e; font-family:Georgia,serif; }
+.s16 .linkpair { display:grid; grid-template-columns:1fr 1fr; }
+.s16 .blue-guest { padding:16px; color:white; text-align:center; background:repeating-linear-gradient(0deg,#071762 0 6px,#1539a7 7px 13px); }
+.s16 .blue-guest a { color:#fff45a; }
+.s16 .blue-guest .road { height:9px; margin:25px 0; border-block:2px solid #eee45b; background:repeating-linear-gradient(90deg,#111 0 14px,#d9ce48 14px 22px); }
+.s16 .deep-retro > footer { padding:10px; text-align:center; border-top:3px double #696344; }
+
+/* 17 — Jul i Dannevang + Pilen + Dömitz seasonal almanac */
+.s17 { color:#352a1f; background:#d8d0b9; font:15px Georgia,"Times New Roman",serif; }
+.s17 a { color:#8b261f; text-decoration:underline; }
+.s17 .almanac-shell { width:min(1080px,100%); margin:auto; background:#fbf6e6; border-inline:1px solid #897a59; }
+.s17 .almanac-utility { padding:7px 18px; color:#f8ebc7; text-align:right; background:#315c3c; font:12px Arial,sans-serif; }
+.s17 .almanac-head { display:grid; grid-template-columns:105px 1fr; gap:22px; align-items:center; padding:22px 30px; border-block:7px double #9b2d25; background:repeating-linear-gradient(90deg,#f9f0d8 0 20px,#f5e9ca 20px 21px); }
+.s17 .almanac-head h1 { margin:3px 0; color:#8d291f; font:40px "Comic Sans MS",Georgia,serif; }
+.s17 .almanac-head p,.s17 .almanac-head small { margin:0; color:#315c3c; }
+.s17 .stamp { width:92px; height:76px; display:grid; place-items:center; color:#315c3c; text-align:center; font-weight:bold; border:6px double #315c3c; transform:rotate(-3deg); }
+.s17 .almanac-nav { display:grid; grid-template-columns:repeat(6,1fr); background:#eee0b9; border-bottom:1px solid #8e805f; }
+.s17 .almanac-nav a { padding:10px 5px; color:#3b382b; text-align:center; text-decoration:none; border-right:1px dotted #8e805f; font-weight:bold; }
+.s17 .postcard-strip { display:grid; grid-template-columns:1.15fr 1fr 1fr; padding:18px 22px; gap:16px; background:#315c3c; }
+.s17 .postcard-strip figure { margin:0; padding:6px 6px 10px; background:#fffdf4; border:1px solid #c5b891; transform:rotate(-1deg); }
+.s17 .postcard-strip figure:nth-child(2) { transform:rotate(1.2deg); }
+.s17 .postcard-strip img { display:block; width:100%; height:155px; object-fit:cover; filter:sepia(.16) saturate(.85); }
+.s17 .postcard-strip figcaption { padding-top:7px; text-align:center; font:14px "Comic Sans MS",cursive; }
+.s17 .almanac-main { display:grid; grid-template-columns:minmax(0,1fr) 265px; gap:28px; padding:28px 30px 50px; }
+.s17 .almanac-letter { line-height:1.65; }
+.s17 .almanac-letter h2 { margin:24px 0 8px; color:#315c3c; font-size:25px; border-bottom:1px dotted #796d50; }
+.s17 .dropcap::first-letter { float:left; margin:5px 8px 0 0; color:#992f25; font-size:52px; line-height:.75; }
+.s17 .event-ledger { border-block:3px double #7d7257; }
+.s17 .event-ledger article { display:grid; grid-template-columns:34px 105px 1fr; gap:10px; padding:10px 4px; border-bottom:1px dotted #9e9275; }
+.s17 .event-ledger article:last-child { border-bottom:0; }
+.s17 .event-ledger article > b { color:#9a2e25; font-size:21px; }
+.s17 .event-ledger time { font-weight:bold; }
+.s17 .event-ledger small { display:block; color:#6e6654; }
+.s17 .almanac-features { display:grid; grid-template-columns:1fr 1fr; gap:16px; margin:34px 0; }
+.s17 .almanac-features article { min-width:0; padding:15px 16px 17px; background:#f5e9c9; border:1px solid #9b8c68; border-top:5px double #8f2b22; }
+.s17 .almanac-features article:nth-child(even) { border-top-color:#315c3c; }
+.s17 .almanac-features article > small { display:block; color:#75684d; font:11px Arial,sans-serif; letter-spacing:.6px; }
+.s17 .almanac-features article h2 { margin:6px 0 8px; color:#8e2a22; font-size:20px; border-bottom:1px dotted #9b8c68; }
+.s17 .almanac-features article p { margin:0 0 10px; line-height:1.55; }
+.s17 .almanac-side section { margin-bottom:22px; padding:14px; background:#f2e6c5; border:2px solid #9b8c68; }
+.s17 .almanac-side h2 { margin:0 0 10px; color:#8e2a22; font-size:21px; }
+.s17 .notice-slip > div { padding:10px 0; border-top:1px dotted #897b5d; }
+.s17 .notice-slip span,.s17 .notice-slip em,.s17 .notice-slip a { display:block; margin-top:3px; }
+.s17 .notice-slip em { font-size:12px; }
+.s17 .editor-note img { width:100%; border:6px solid white; transform:rotate(1deg); }
+.s17 .year-archive { text-align:center; }
+.s17 .almanac-shell > footer { padding:13px; color:#f8ebc7; text-align:center; background:#315c3c; font-size:12px; }
+
+@media (max-width:760px) {
+  .s01 .page,.s03 .columns,.s06 .dashboard,.s08 .page,.s10 .story-layout,.s12 .office-shell,.s13 .archive-shell>main,.s15 .mag-body,.s16 .retro3 { grid-template-columns:1fr; }
+  .s01 .nav { display:grid; grid-template-columns:1fr 1fr; }
+  .gallery-grid { grid-template-columns:1fr; }
+  .s02 .guestbook-title { align-items:center; }
+  .s02 h1 { font-size:30px; }
+  .s02 .sundet-cards { grid-template-columns:1fr; }
+  .s01 .portrait { width:150px; }
+  .s01 .news { grid-template-columns:100px 1fr; }
+  .s03 .leftnav { display:grid; grid-template-columns:1fr 1fr; gap:3px; }
+  .s04 .grid,.s07 .boards { grid-template-columns:1fr; }
+  .s05 main { padding:25px 18px; }
+  .s06 .quick,.s06 .links { grid-template-columns:1fr 1fr; }
+  .s07 header { height:220px; background-size:cover; }
+  .s08 .activities { grid-column:auto; }
+  .s09 .mega,.s09 .iconlinks,.s14 .league>nav { grid-template-columns:repeat(2,1fr); }
+  .s09 .portal3,.s11 .station-boards,.s14 .league main { grid-template-columns:1fr; }
+  .s09 .popup-note { position:static; width:auto; margin:15px; }
+  .s10 .mosaic,.s15 .mag-grid { grid-template-columns:1fr 1fr; }
+  .s10 .story-layout aside { border-right:0; border-bottom:1px dashed #9b8a6b; }
+  .s10 .story-layout main img { width:100%; float:none; margin:0; }
+  .s11 .station-quick { grid-template-columns:1fr 1fr; }
+  .s12 .course-desk { border-left:0; }
+  .s13 .archive-shell>nav { flex-wrap:wrap; }
+  .s14 .league-status { grid-template-columns:1fr; }
+  .s14 .league .league-photo-head { height:220px; padding:18px; }
+  .s14 .league .league-photo-head h1 { margin-top:8px; font-size:26px; }
+  .s14 .badge { width:78px; height:78px; flex-basis:78px; }
+  .s15 .mag-body article img { width:100%; float:none; }
+  .s16 .blue-guest { min-height:280px; }
+  .s17 .almanac-head,.s17 .almanac-main { grid-template-columns:1fr; }
+  .s17 .almanac-nav { grid-template-columns:1fr 1fr; }
+  .s17 .postcard-strip { grid-template-columns:1fr; }
+  .s17 .almanac-features { grid-template-columns:1fr; }
+  .s17 .postcard-strip img { height:auto; }
+  .s17 .event-ledger article { grid-template-columns:32px 1fr; }
+  .s17 .event-ledger article span { grid-column:2; }
+}

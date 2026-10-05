@@ -46,7 +46,7 @@
     const photoIndex = (id, key, fallback = 0) => Number(themeCopy(id).photos?.[key] ?? option(id, 'photos', key) ?? fallback);
     const img = (index, className = '') => `<img class="${className}" src="${esc(p(index).src)}" alt="${esc(p(index).alt)}">`;
     const themeImg = (id, key, fallback, className = '') => img(photoIndex(id, key, fallback), `${className} theme-photo`.trim());
-    const logo = (className = 'club-logo') => `<img class="${className}" src="${esc(source.meta.logo || 'assets/images/kacc-logo.png')}" alt="${esc(D.name)} 로고">`;
+    const logo = (className = 'club-logo') => `<img class="${className}" src="${esc(source.meta.logo || 'assets/images/kacc-logo-taegeuk.png')}" alt="${esc(D.name)} 로고">`;
     const navItems = [
       ['home', '시작페이지'], ['club', '회원 가입'], ['launch-points', '카누 런치 포인트'],
       ['seasons', '계절별 카누'], ['canoe-vs-kayak', '카누와 카약 차이'],

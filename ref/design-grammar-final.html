@@ -1,0 +1,474 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>한국 아마추어 카누 클럽 — 디자인 문법 조사</title>
+  <style>
+    :root {
+      --paper: #f5f1df;
+      --paper-deep: #e9e0bd;
+      --ink: #17170f;
+      --green: #006633;
+      --link: #07863d;
+      --visited: #8b5a2b;
+      --rule: #b99d3f;
+      --navy: #050c57;
+      --blue: #173cc4;
+      --red: #ef4135;
+      --yellow: #fff45c;
+      --white: #fff;
+      --muted: #5b594c;
+      --max: 1120px;
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      color: var(--ink);
+      background:
+        repeating-linear-gradient(0deg, rgba(92,77,23,.025) 0 1px, transparent 1px 3px),
+        var(--paper);
+      font-family: Georgia, "Times New Roman", Times, serif;
+      font-size: 17px;
+      line-height: 1.58;
+    }
+    a { color: var(--link); text-decoration: underline; text-underline-offset: 2px; }
+    a:visited { color: var(--visited); }
+    a:hover { background: #fff6a2; color: #123d1f; }
+    img { max-width: 100%; }
+    code { font-family: "Courier New", monospace; font-size: .9em; }
+
+    .masthead {
+      border-top: 6px solid var(--green);
+      border-bottom: 1px solid var(--rule);
+      background: rgba(255,255,255,.46);
+    }
+    .masthead__inner {
+      width: min(calc(100% - 32px), var(--max));
+      margin: auto;
+      padding: 27px 0 23px;
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      gap: 20px;
+      align-items: center;
+    }
+    .mark {
+      width: 78px;
+      height: 58px;
+      display: grid;
+      place-items: center;
+      border: 1px solid #978643;
+      background: #e8e0bd;
+      color: var(--green);
+      font-size: 34px;
+    }
+    h1 { margin: 0; font-size: clamp(30px, 4vw, 48px); line-height: 1.08; font-weight: 500; }
+    .subtitle { margin: 8px 0 0; color: var(--muted); }
+
+    .layout {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 26px auto 72px;
+      display: grid;
+      grid-template-columns: 180px minmax(0, 1fr);
+      gap: 34px;
+      align-items: start;
+    }
+    .toc { position: sticky; top: 16px; font-size: 14px; }
+    .toc strong { display: block; margin-bottom: 8px; color: var(--green); font-size: 18px; }
+    .toc a {
+      display: block;
+      padding: 7px 8px;
+      border-top: 1px solid #c8b76f;
+      color: #242415;
+      text-decoration: none;
+    }
+    .toc a:last-child { border-bottom: 1px solid #c8b76f; }
+    .toc a:hover { background: #fff9cf; }
+
+    main { min-width: 0; }
+    section { padding: 0 0 42px; margin: 0 0 42px; border-bottom: 1px solid var(--rule); }
+    section:last-child { border-bottom: 0; }
+    h2 { color: var(--green); font-size: 30px; line-height: 1.2; margin: 0 0 17px; }
+    h3 { color: var(--green); font-size: 22px; margin: 28px 0 10px; }
+    p { margin: 10px 0 15px; }
+    ul, ol { padding-left: 1.4em; }
+    li + li { margin-top: 7px; }
+
+    .lead {
+      font-size: 23px;
+      line-height: 1.45;
+      color: #233823;
+      margin-top: 0;
+    }
+    .decision {
+      border-left: 7px solid var(--green);
+      padding: 16px 20px;
+      background: rgba(255,255,255,.52);
+      margin: 22px 0;
+    }
+    .decision p:last-child { margin-bottom: 0; }
+
+    .reference-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 22px 0; }
+    .reference {
+      border: 1px solid #ad9c59;
+      padding: 18px;
+      background: rgba(255,255,255,.38);
+    }
+    .reference--blue {
+      border-color: #273da8;
+      color: white;
+      background: linear-gradient(#111e91, #06105d);
+    }
+    .reference--blue h3 { color: var(--red); }
+    .reference--blue a { color: white; }
+    .reference--blue a:visited { color: var(--yellow); }
+    .reference h3 { margin-top: 0; }
+
+    .hierarchy { display:grid; gap:16px; margin-top:22px; }
+    .tier { border:1px solid #ad9c59; background:rgba(255,255,255,.38); padding:18px; }
+    .tier h3 { margin-top:0; }
+    .tier--primary { border-left:8px solid var(--green); }
+    .tier--visual { border-left:8px solid #b62419; }
+    .tier--functional { border-left:8px solid #355e9c; }
+    .secondary-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:12px; }
+    .secondary-ref { border-top:1px dotted #8b7c45; padding-top:10px; }
+    .secondary-ref strong { color:var(--green); display:block; }
+    .formula { font-family:"Courier New",monospace; padding:14px 16px; background:#19180f; color:#f8f2cf; line-height:1.75; overflow:auto; }
+
+    .compare-wrap { overflow-x: auto; border: 1px solid #af9d55; }
+    table { width: 100%; border-collapse: collapse; min-width: 680px; background: rgba(255,255,255,.4); }
+    th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-right: 1px solid #d1c694; border-bottom: 1px solid #d1c694; }
+    th { color: var(--green); background: #eee7c8; }
+    tr:last-child td { border-bottom: 0; }
+    th:last-child, td:last-child { border-right: 0; }
+
+    .anatomy {
+      display: grid;
+      grid-template-columns: 140px minmax(0,1fr);
+      min-height: 420px;
+      border: 1px solid #a99648;
+      background: #faf8ec;
+      margin: 20px 0;
+      font-family: Georgia, "Times New Roman", serif;
+    }
+    .anatomy__nav { border-right: 1px solid #c4b36b; padding: 11px 8px; }
+    .mini-logo { height: 47px; display:grid; place-items:center; margin-bottom: 9px; background:#d9e3da; border:1px solid #929e8f; color:#294b32; font-size:12px; }
+    .mini-nav { display:block; text-align:center; padding: 6px 2px; color:#222; border-top: 1px solid #c9b86b; text-decoration:none; font-size: 12px; }
+    .mini-nav:last-child { border-bottom: 1px solid #c9b86b; }
+    .anatomy__body { padding: 14px 18px 30px; position:relative; }
+    .anatomy__banner { text-align:center; font-size:25px; border-top:2px solid #b49b42; padding-top:4px; margin-bottom:20px; }
+    .anatomy__body h4 { color:var(--green); font-size:21px; margin:16px 0 5px; }
+    .anatomy__body p { font-size:13px; line-height:1.25; max-width:72%; }
+    .mock-photo { position:absolute; right:18px; top:66px; width:110px; height:145px; border:1px solid #777; background:linear-gradient(#8eb8d0 0 42%, #617b59 42%); display:grid; place-items:end center; color:white; font-size:12px; padding:6px; }
+    .news-list { color:var(--link); text-decoration:underline; font-size:13px; line-height:1.45; }
+
+    .guestbook-demo {
+      margin: 20px 0;
+      padding: 22px 18px 32px;
+      color: white;
+      text-align: center;
+      background:
+        repeating-linear-gradient(0deg, transparent 0 5px, rgba(255,255,255,.025) 5px 6px),
+        linear-gradient(#06094c, #1945d1 46%, #050949);
+      border: 4px ridge #244dcc;
+      font-family: Times, "Times New Roman", serif;
+    }
+    .guestbook-demo h4 { margin:0; color:var(--red); font-size:38px; font-weight:400; }
+    .road { height:8px; width:min(640px,90%); margin:5px auto 25px; background: repeating-linear-gradient(90deg, #050505 0 14px, #e5db60 14px 22px); border-top:2px solid #ddd76a; border-bottom:2px solid #ddd76a; }
+    .guestbook-demo a { color:white; font-size:22px; font-weight:bold; }
+    .guestbook-demo a:visited { color:var(--yellow); }
+    .years { margin:28px 0; font-size:18px; }
+    .guestbook-demo small { display:block; max-width:680px; margin:auto; font-size:15px; line-height:1.25; }
+
+    .tokens { display:grid; grid-template-columns:repeat(5,1fr); gap:8px; margin:15px 0 25px; }
+    .token { min-height:90px; padding:10px; border:1px solid rgba(0,0,0,.25); display:flex; flex-direction:column; justify-content:flex-end; font-size:13px; }
+    .token code { display:block; }
+    .t-paper { background:#f4f1df; }
+    .t-green { background:#006633; color:white; }
+    .t-link { background:#009933; color:white; }
+    .t-navy { background:#071064; color:white; }
+    .t-red { background:#f44336; color:white; }
+
+    .flow { counter-reset: flow; list-style:none; padding:0; margin:20px 0; }
+    .flow li { counter-increment:flow; display:grid; grid-template-columns:48px 1fr; gap:14px; align-items:start; padding:13px 0; border-top:1px dotted #8b7c45; }
+    .flow li::before { content:counter(flow); width:36px; height:36px; display:grid; place-items:center; border:1px solid var(--green); color:var(--green); font-weight:bold; }
+    .flow strong { display:block; color:var(--green); }
+
+    .avoid { display:grid; grid-template-columns:1fr 1fr; gap:22px; }
+    .avoid > div { padding:15px 18px; border:1px solid #af9d55; background:rgba(255,255,255,.35); }
+    .avoid h3 { margin-top:0; }
+    .checklist { columns:2; column-gap:36px; padding-left:0; list-style:none; }
+    .checklist li { break-inside:avoid; position:relative; padding-left:28px; margin-bottom:12px; }
+    .checklist li::before { content:"□"; position:absolute; left:0; color:var(--green); font-size:22px; line-height:1; }
+    blockquote { margin:24px 0; padding:18px 22px; border:1px solid #a78e35; border-left:8px solid var(--green); background:#fff8d8; font-size:23px; color:#243421; }
+    footer { border-top:1px solid var(--rule); text-align:center; padding:24px; color:var(--muted); font-size:14px; }
+
+    @media (max-width: 760px) {
+      .masthead__inner { grid-template-columns:58px 1fr; }
+      .mark { width:56px; height:50px; }
+      .layout { grid-template-columns:1fr; }
+      .toc { position:static; display:grid; grid-template-columns:1fr 1fr; }
+      .toc strong { grid-column:1/-1; }
+      .reference-grid, .avoid, .secondary-grid { grid-template-columns:1fr; }
+      .tokens { grid-template-columns:1fr 1fr; }
+      .anatomy { grid-template-columns:105px 1fr; }
+      .mock-photo { position:static; width:90px; height:110px; float:right; margin:0 0 10px 12px; }
+      .anatomy__body p { max-width:none; }
+      .checklist { columns:1; }
+    }
+  </style>
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead__inner">
+      <div class="mark" aria-hidden="true">🛶</div>
+      <div>
+        <h1>한국 아마추어 카누 클럽<br>디자인 문법 조사</h1>
+        <p class="subtitle">두 개의 핵심 레퍼런스와 일곱 개의 카누 클럽 사이트에서 추출한 최종 기준</p>
+      </div>
+    </div>
+  </header>
+
+  <div class="layout">
+    <nav class="toc" aria-label="문서 목차">
+      <strong>문서 목차</strong>
+      <a href="#conclusion">1. 결론</a>
+      <a href="#hierarchy">2. 레퍼런스 위계</a>
+      <a href="#comparison">3. 핵심 비교</a>
+      <a href="#riddersholm">4. Riddersholm</a>
+      <a href="#sundet">5. Sundet</a>
+      <a href="#shared">6. 통합 문법</a>
+      <a href="#structure">7. 페이지 구조</a>
+      <a href="#guardrails">8. 구현 경계</a>
+      <a href="#check">9. 체크리스트</a>
+    </nav>
+
+    <main>
+      <section id="conclusion">
+        <h2>1. 결론</h2>
+        <p class="lead">목표는 ‘복고풍으로 새로 디자인한 웹사이트’가 아니라, 한 개인이나 작은 지역 공동체가 2000년대 초부터 직접 운영해 온 홈페이지입니다.</p>
+        <div class="reference-grid">
+          <article class="reference">
+            <h3>Riddersholm = 골격</h3>
+            <p>왼쪽 메뉴, 상단 제목, 긴 본문, 작은 사진, 뉴스와 개인 기록이 한 페이지에 공존하는 전체 구조.</p>
+            <a href="https://www.riddersholm.dk/crhome/">2004년 홈페이지 열기</a>
+          </article>
+          <article class="reference reference--blue">
+            <h3>Sundet = 강조 페이지</h3>
+            <p>강한 배경색, 가운데 정렬, GIF 장식, 큰 링크, 연도별 방명록과 운영자의 직접적인 말투.</p>
+            <a href="https://www.sundet.no/gbok.htm">방명록 열기</a>
+          </article>
+        </div>
+        <div class="decision">
+          <strong>조합 원칙</strong>
+          <p>전체 사이트는 Riddersholm의 골격을 사용하고, 방명록·회원 모집·행사 특집 같은 일부 페이지에 Sundet의 강한 색과 중앙 정렬을 적용합니다. 후순위 일곱 곳에서는 카누 클럽의 실제 운영 정보만 선별합니다.</p>
+        </div>
+      </section>
+
+      <section id="hierarchy">
+        <h2>2. 레퍼런스 위계</h2>
+        <p class="lead">모든 레퍼런스를 같은 비중으로 섞지 않습니다. 외형을 정하는 사이트와 기능을 빌리는 사이트를 분리합니다.</p>
+        <div class="hierarchy">
+          <article class="tier tier--primary">
+            <h3>1순위 — 전체 인상</h3>
+            <div class="secondary-grid">
+              <div class="secondary-ref"><strong><a href="https://www.riddersholm.dk/crhome/">Riddersholm</a></strong>왼쪽 메뉴, 긴 첫 화면, 개인적인 기록과 작은 사진.</div>
+              <div class="secondary-ref"><strong><a href="https://www.sundet.no/gbok.htm">Sundet Guestbook</a></strong>강한 색, 중앙 정렬, GIF 구분선과 연도별 기록.</div>
+            </div>
+          </article>
+          <article class="tier tier--visual">
+            <h3>2순위 A — 시각 문법도 반영</h3>
+            <div class="secondary-grid">
+              <div class="secondary-ref"><strong><a href="https://www.kanu-doemitz.de/">Dömitzer Kanu Verein</a></strong>사진 배너, 왼쪽 일정·중앙 자료·오른쪽 뉴스의 조밀한 3열 홈.</div>
+              <div class="secondary-ref"><strong><a href="https://kanu-riesa.lima-city.de/startseite.htm">KSV Lok Riesa</a></strong>두 장씩 놓인 기록 사진, 단순한 본문, 개설일과 마지막 관리일.</div>
+            </div>
+          </article>
+          <article class="tier tier--functional">
+            <h3>2순위 B — 기능과 콘텐츠만 반영</h3>
+            <div class="secondary-grid">
+              <div class="secondary-ref"><strong><a href="https://palo.dk/default.aspx">PALO</a></strong>긴 공지 피드, 회보 PDF, 회원 제보와 계절 안전 공지.</div>
+              <div class="secondary-ref"><strong><a href="https://sesinfo.dk/default.aspx">Esrum Sø</a></strong>날씨, 달력, 결제·보관·예약, 시설과 중고거래.</div>
+              <div class="secondary-ref"><strong><a href="https://www.glx.dk/">GLX</a></strong>이사회 게시판, 회원 게시판, 로그인 전후 정보 구분.</div>
+              <div class="secondary-ref"><strong><a href="https://www.kkkn.dk/">NORD</a></strong>창립 이야기, 초보 강습 상태, 담당자와 가입 안내.</div>
+              <div class="secondary-ref"><strong><a href="https://www.kajakklubben-pilen.dk/">Pilen</a></strong>강습 가격·잔여석·신청, 작은 클럽 소개와 일정.</div>
+            </div>
+          </article>
+        </div>
+        <p class="formula">시각적 골격 = Riddersholm + Sundet<br>홈 보조 배치 = Dömitz + Riesa<br>운영 정보 = PALO + Esrum Sø + GLX + NORD + Pilen</p>
+      </section>
+
+      <section id="comparison">
+        <h2>3. 두 핵심 사이트 비교</h2>
+        <div class="compare-wrap">
+          <table>
+            <thead><tr><th>항목</th><th>Riddersholm</th><th>Sundet</th><th>프로젝트 적용</th></tr></thead>
+            <tbody>
+              <tr><td>성격</td><td>가족·개인 기록 포털</td><td>트럭 취미 방명록</td><td>지역 카누 공동체 기록소</td></tr>
+              <tr><td>구조</td><td>왼쪽 메뉴 + 긴 본문</td><td>한 열 중앙 정렬</td><td>기본은 좌측 메뉴, 특집은 중앙 한 열</td></tr>
+              <tr><td>배경</td><td>옅은 종이색 타일</td><td>짙고 밝은 파란 타일</td><td>크림색 기본 + 남색 방명록</td></tr>
+              <tr><td>글꼴</td><td>Georgia·Times·Comic Sans</td><td>Times</td><td>세리프 중심, 서명만 손글씨풍</td></tr>
+              <tr><td>링크</td><td>초록 / 방문 후 갈색</td><td>흰색 / 방문 후 노란색</td><td>밑줄과 방문 상태를 명확히 표시</td></tr>
+              <tr><td>시간</td><td>개설일·소식·방문자 수</td><td>1996~2004 방명록</td><td>연도별 사진·행사·방명록 보존</td></tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="riddersholm">
+        <h2>4. Riddersholm의 문법</h2>
+        <p><strong>측정된 핵심:</strong> 140×34px 이미지 메뉴, Georgia/Times 본문, 24px 녹색 제목, <code>#009933</code> 링크, 종이색 배경 타일, 100% 폭 표 레이아웃.</p>
+        <div class="anatomy" aria-label="Riddersholm 페이지 구조를 단순화한 그림">
+          <aside class="anatomy__nav">
+            <div class="mini-logo">작은 사진 로고</div>
+            <a class="mini-nav" href="#">시작페이지</a>
+            <a class="mini-nav" href="#">최근 소식</a>
+            <a class="mini-nav" href="#">우리는 누구인가</a>
+            <a class="mini-nav" href="#">카누 타는 곳</a>
+            <a class="mini-nav" href="#">정기 모임</a>
+            <a class="mini-nav" href="#">활동 사진</a>
+            <a class="mini-nav" href="#">방명록</a>
+            <a class="mini-nav" href="#">연락처</a>
+            <a class="mini-nav" href="#">링크</a>
+          </aside>
+          <div class="anatomy__body">
+            <div class="anatomy__banner">한국 아마추어 카누 클럽</div>
+            <div class="mock-photo">운영자 사진</div>
+            <h4>우리 홈페이지에 오신 것을 환영합니다</h4>
+            <p>이 홈페이지는 카누를 좋아하는 지역 사람들의 모임과 사진, 기록을 가족과 친구들에게 소개하기 위해 만들었습니다.</p>
+            <p><em>웹마스터 김카누<br>한강 근처에서</em></p>
+            <h4>최근 소식</h4>
+            <div class="news-list">▪ 2026년 가을 정기 패들 안내<br>▪ 오래된 회원 사진을 찾습니다<br>▪ 초보 회원의 첫 카누 이야기<br>▪ 중고 패들 한 자루 나눔</div>
+            <h4>우리 모임은</h4>
+            <p>매달 둘째 주 토요일에 강가에서 만나 함께 노를 젓습니다. 더 자세한 이야기는 여기에서 볼 수 있습니다.</p>
+          </div>
+        </div>
+        <ol>
+          <li><strong>메뉴가 별도 오브젝트처럼 보입니다.</strong> 같은 크기의 이미지 버튼이 홈페이지의 목차가 됩니다.</li>
+          <li><strong>첫 화면이 전체 사이트의 축약본입니다.</strong> 소개·뉴스·사람·장소·사진을 세로로 계속 보여줍니다.</li>
+          <li><strong>사진은 장식보다 증거입니다.</strong> 실제 사건과 인물을 확인시키는 작은 기록 사진입니다.</li>
+          <li><strong>운영자가 숨지 않습니다.</strong> 이름, 사이트 목적, 연락 방식과 개인적인 인사를 직접 남깁니다.</li>
+        </ol>
+      </section>
+
+      <section id="sundet">
+        <h2>5. Sundet Guestbook의 문법</h2>
+        <p><strong>측정된 핵심:</strong> Times 16px, 흰 본문, 흰 링크와 노란 방문 링크, 빨간 대형 제목, 62×61px 캐릭터 GIF, 640×10px 도로 GIF 구분선, 두 개의 <code>&lt;center&gt;</code> 영역.</p>
+        <div class="guestbook-demo" aria-label="Sundet 방명록 문법을 적용한 예시">
+          <h4>방명록 — “THE GUESTBOOK”</h4>
+          <div class="road"></div>
+          <p><a href="#sundet">방명록에 쓰기</a><br><a href="#sundet">방명록 읽기</a></p>
+          <p class="years"><a href="#sundet">1996</a>, <a href="#sundet">1997</a>, <a href="#sundet">1998</a>, <a href="#sundet">1999</a>, <a href="#sundet">2000</a>, <a href="#sundet">2001</a>, <a href="#sundet">2002</a>, <a href="#sundet">2003</a>, <a href="#sundet">2004</a></p>
+          <div class="road"></div>
+          <h3 style="color:white">처음 오셨나요? 어렵지 않습니다!</h3>
+          <small>이름과 짧은 인사를 남겨 주세요. 지난 모임에서 찍은 사진이 있다면 사진첩 담당자에게 보내 주셔도 좋습니다.</small>
+        </div>
+        <ol>
+          <li><strong>대칭과 반복이 그리드를 대신합니다.</strong> 거의 모든 것이 가운데 정렬됩니다.</li>
+          <li><strong>방문 여부가 색으로 보입니다.</strong> 링크의 상태 변화가 사용자의 흔적이 됩니다.</li>
+          <li><strong>GIF가 로고와 구분선 역할을 합니다.</strong> 작은 그림도 화면 구조에 적극적으로 참여합니다.</li>
+          <li><strong>연도 목록이 곧 역사입니다.</strong> 오래된 기록을 첫 화면에서 숨기지 않습니다.</li>
+        </ol>
+      </section>
+
+      <section id="shared">
+        <h2>6. 아홉 사이트에서 추출한 통합 문법</h2>
+        <h3>색과 질감</h3>
+        <div class="tokens">
+          <div class="token t-paper">종이 배경<code>#F4F1DF</code></div>
+          <div class="token t-green">제목 녹색<code>#006633</code></div>
+          <div class="token t-link">기본 링크<code>#009933</code></div>
+          <div class="token t-navy">특집 배경<code>#071064</code></div>
+          <div class="token t-red">특집 제목<code>#F44336</code></div>
+        </div>
+        <h3>레이아웃과 정보</h3>
+        <ul>
+          <li>페이지는 위에서 아래로 길게 읽으며 첫 화면에도 정보가 많습니다.</li>
+          <li>카드 대신 제목, 수평선, 이미지, 빈 줄로 내용을 구분합니다.</li>
+          <li>본문은 15~17px 세리프, 소제목은 22~26px, 모든 링크에는 밑줄을 둡니다.</li>
+          <li>사진은 같은 비율로 자르지 않고 140px, 220px, 320px 등 서로 다른 크기로 둡니다.</li>
+          <li>구체적인 날짜, 장소, 이름과 작은 사건을 기록합니다.</li>
+          <li>과거 소식과 사진을 삭제하지 않고 연도별로 쌓습니다.</li>
+        </ul>
+        <h3>카누 클럽 운영 문법</h3>
+        <ul>
+          <li><strong>방문자별 묶음:</strong> 회원, 가입 희망자, 초보자의 링크를 분리합니다.</li>
+          <li><strong>날짜 우선 일정:</strong> 날짜, 행사명, 시간, 참가 인원을 한 줄에서 확인하게 합니다.</li>
+          <li><strong>계절 안전 공지:</strong> 구명조끼 기간, 수온, 동행 규칙을 홈에 반복 노출합니다.</li>
+          <li><strong>문서 저장소:</strong> 회보, 회의록, 회칙, 가입서와 연간 계획 PDF를 보존합니다.</li>
+          <li><strong>담당자가 보이는 안내:</strong> 강습·사진·장비 담당자의 이름과 연락 경로를 둡니다.</li>
+          <li><strong>생활형 기록:</strong> 장비 분실물, 선착장 청소, 함께 탈 사람과 중고 장비도 기록합니다.</li>
+        </ul>
+      </section>
+
+      <section id="structure">
+        <h2>7. 카누 클럽 페이지 구조</h2>
+        <p>홈은 Dömitz처럼 왼쪽 메뉴·중앙 본문·오른쪽 일정의 3열을 사용하고, 서브페이지는 Riddersholm처럼 왼쪽 메뉴와 긴 본문의 2열로 단순화합니다.</p>
+        <ol class="flow">
+          <li><div><strong>작은 카누 GIF 또는 저해상도 로고</strong>사이트의 수작업 감각을 처음부터 드러냅니다.</div></li>
+          <li><div><strong>텍스트 배너</strong>한국 아마추어 카누 클럽이라는 이름을 장식보다 먼저 보여줍니다.</div></li>
+          <li><div><strong>운영자 소개</strong>홈페이지를 만든 이유와 웹마스터의 짧은 서명을 둡니다.</div></li>
+          <li><div><strong>최근 소식 5~7개</strong>정기 패들, 장비 나눔, 사진 요청처럼 실제적인 소식을 나열합니다.</div></li>
+          <li><div><strong>다음 일정과 안전 공지</strong>오른쪽 좁은 칸에 날짜와 구명조끼·수온 정보를 둡니다.</div></li>
+          <li><div><strong>회원·초보자 자료</strong>회보, 가입서, 강습 상태와 비용을 방문자별로 묶습니다.</div></li>
+          <li><div><strong>지역 수로와 사진첩</strong>강·호수·선착장 정보와 연도별 활동 기록을 연결합니다.</div></li>
+          <li><div><strong>방명록과 상태 줄</strong>개설일, 마지막 수정일, 방문자 수와 웹마스터를 함께 적습니다.</div></li>
+        </ol>
+      </section>
+
+      <section id="guardrails">
+        <h2>8. 구현 경계</h2>
+        <div class="avoid">
+          <div>
+            <h3>사용하지 않을 것</h3>
+            <ul>
+              <li>둥근 카드와 부드러운 그림자</li>
+              <li>화면 전체 히어로 이미지</li>
+              <li>균일한 3열 상품형 그리드</li>
+              <li>햄버거 메뉴와 아이콘 전용 메뉴</li>
+              <li>모든 사진의 강제 동일 비율</li>
+              <li>짧고 추상적인 광고 문구</li>
+              <li>GLX·NORD식 SNS 카드와 반응 버튼</li>
+            </ul>
+          </div>
+          <div>
+            <h3>현대적으로 지킬 것</h3>
+            <ul>
+              <li>표 대신 의미 있는 HTML과 CSS 사용</li>
+              <li>키보드 포커스와 대체 텍스트 제공</li>
+              <li>배경 이미지 없이도 읽히는 대비</li>
+              <li>모바일에서는 메뉴를 2열로 펼쳐 표시</li>
+              <li>방문 링크 색의 접근성 확인</li>
+              <li>사진마다 촬영연도와 설명 기록</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section id="check">
+        <h2>9. 구현 판정 체크리스트</h2>
+        <ul class="checklist">
+          <li>첫 화면에서 운영자가 누구인지 느껴지는가?</li>
+          <li>최근 기록과 오래된 기록이 함께 보이는가?</li>
+          <li>메뉴가 홈페이지 목차처럼 보이는가?</li>
+          <li>카드 없이 제목·문단·링크로 정리되는가?</li>
+          <li>사진 크기와 비율이 지나치게 균일하지 않은가?</li>
+          <li>링크가 밑줄과 상태색을 갖는가?</li>
+          <li>방명록과 연도별 사진첩이 중요한 위치에 있는가?</li>
+          <li>회원·가입 희망자·초보자 링크가 구분되는가?</li>
+          <li>일정·안전 공지·회보·강습 상태가 보이는가?</li>
+          <li>개설일·마지막 수정일·웹마스터가 보이는가?</li>
+          <li>현대 템플릿에 옛 색만 입힌 것처럼 보이지 않는가?</li>
+          <li>모바일과 키보드로도 사용할 수 있는가?</li>
+        </ul>
+        <blockquote>2003년에 지역 카누 애호가가 FrontPage로 처음 만들고, 회원들이 사진과 방명록을 계속 보태며 오늘까지 조심스럽게 유지해 온 홈페이지처럼 만든다.</blockquote>
+      </section>
+    </main>
+  </div>
+
+  <footer>
+    조사 기준일: 2026-10-04 · 원본의 이미지와 문구를 복제하지 않고 구조와 문법만 참고합니다.
+  </footer>
+</body>
+</html>

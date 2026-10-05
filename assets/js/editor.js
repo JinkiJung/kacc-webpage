@@ -22,8 +22,9 @@
       value.board = clone(fileData.board);
     }
     if (value.meta.description === '카누를 처음 만나는 사람부터 오래 노를 저어 온 사람까지, 물길의 정보와 이야기를 나누는 비영리 취미 모임의 웹사이트 목업입니다.') value.meta.description = fileData.meta.description;
-    value.meta.logo ||= fileData.meta.logo;
+    if (!value.meta.logo || value.meta.logo === 'assets/images/kacc-logo.png') value.meta.logo = fileData.meta.logo;
     value.meta.webmaster ||= fileData.meta.webmaster;
+    if (value.meta.email === 'paddle@example.org') value.meta.email = fileData.meta.email;
     const noticePage = value.pages.find(page => page.id === 'board');
     if (noticePage?.label === '공지와 이사회') noticePage.label = '공지';
     if (noticePage?.short === '소식') noticePage.short = '공지';

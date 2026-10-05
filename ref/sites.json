@@ -1,0 +1,31 @@
+{
+  "researchedAt": "2026-10-04",
+  "purpose": "한국 아마추어 카누 클럽 프론트엔드의 정보 구조와 시각 문법 조사",
+  "sites": [
+    {"country":"KR","name":"한국아마추어무선연맹","url":"https://www.karl.or.kr/index.html","theme":"amateur association","retroStrength":4,"signals":["dense mega menu","boards","calendar","regional chapters","committees","photo archive"]},
+    {"country":"DK","name":"Jølnir Julemanden","url":"https://julidannevang.dk/jolnir-julemanden/","theme":"personal local story","retroStrength":4,"signals":["large photos","long prose","homemade spacing"]},
+    {"country":"DK","name":"Esrum Sø","url":"https://www.esrumsoe.dk/","theme":"lake and water clubs portal","retroStrength":5,"signals":["weather status","small images","link hub","scattered modules"]},
+    {"country":"DK","name":"Sørup Havns Bådelav","url":"https://www.soeruphavn.dk/","theme":"small harbor club","retroStrength":5,"signals":["guestbook","newsletter PDFs","photos","annual events","classifieds"]},
+    {"country":"DK","name":"Charlottenlund Kajakklub PALO","url":"https://palo.dk/default.aspx","theme":"kayak club","retroStrength":4,"signals":["ASP.NET portal","news","records","member information"]},
+    {"country":"DK","name":"Kajakklubben Esrum Sø","url":"https://www.kkes.dk/","theme":"kayak club","retroStrength":4,"signals":["forum","calendar","boat status","children events","club magazine"]},
+    {"country":"DK","name":"Sejlklubben Esrum Sø","url":"https://sesinfo.dk/default.aspx","theme":"sailing club","retroStrength":4,"signals":["member login","fees","berths","events","PDF price list"]},
+    {"country":"DK","name":"Frederiksdal Kano- og Kajakklub","url":"https://www.fkk-dk.dk/","theme":"canoe and kayak club","retroStrength":3,"signals":["small logo","simple navigation","events","board members","bank details"]},
+    {"country":"DK","name":"Gladsaxe Kano- og Kajakklub","url":"https://www.glx.dk/","theme":"canoe and kayak club","retroStrength":3,"signals":["blue bordered nav","member menu","calendar","contact blocks"]},
+    {"country":"DK","name":"Næstved Kajak & Canoklub","url":"https://www.nkc.dk/","theme":"kayak canoe SUP club","retroStrength":3,"signals":["member login","equipment","courses","club life"]},
+    {"country":"DK","name":"Kano & Kajakklubben NORD","url":"https://www.kkkn.dk/","theme":"canoe kayak dragon boat club","retroStrength":3,"signals":["long intro","courses","youth","equipment"]},
+    {"country":"DK","name":"Kajakklubben Pilen","url":"https://www.kajakklubben-pilen.dk/","theme":"kayak club","retroStrength":2,"signals":["club history","courses","schedule"]},
+    {"country":"DK","name":"Sejlernet klubber","url":"https://www.sejlernet.dk/klubber.htm","theme":"sailing club directory","retroStrength":5,"signals":["text links","regional headings","directory layout"]},
+    {"country":"DE","name":"Kanusportverein Lok Riesa","url":"https://kanu-riesa.lima-city.de/startseite.htm","theme":"canoe sport club","retroStrength":5,"signals":["online since 2003","optimized for computers","inline images","encoding artifacts","last updated"]},
+    {"country":"DE","name":"Dömitzer Kanu Verein","url":"https://www.kanu-doemitz.de/","theme":"canoe club","retroStrength":5,"signals":["next events","member and visitor link groups","news archive","last updated"]},
+    {"country":"DE","name":"Kanu-Club Budenheim 1930","url":"https://kanuclub-online.jimdoweb.com/","theme":"canoe club","retroStrength":4,"signals":["guestbook","photo gallery","supporter membership","water level link"]},
+    {"country":"DE","name":"Itzehoer Wasser-Wanderer","url":"https://www.itzehoer-wasser-wanderer.de/news.html","theme":"water hiking and canoe club","retroStrength":3,"signals":["long news","event operations","member tools","manuals"]},
+    {"country":"NO","name":"Kano.no","url":"https://www.kano.no/index.html","theme":"canoe maker and recreation","retroStrength":5,"signals":["simple slogan","product copy","family nature message","old index page"]},
+    {"country":"NO","name":"Aquaklubben","url":"https://www.aquaklubben.no/","theme":"youth recreation canoe kayak","retroStrength":5,"signals":["left menu","short dated news","small logo","two-column layout"]},
+    {"country":"NO","name":"Nord Kano- og Kajakklubb","url":"https://www.nordkkk.no/","theme":"canoe and kayak club","retroStrength":3,"signals":["repeated welcome heading","long operational notice","large member photos"]},
+    {"country":"NO","name":"Tysvær Kano- og Kajakklubb","url":"https://www.tkkk.no/","theme":"canoe and kayak club","retroStrength":2,"signals":["news cards","sponsor grid","events"]},
+    {"country":"SE","name":"Oxelösunds Kanotklubb 1997 legacy","url":"https://people.kth.se/~e92_jsd/okk/links.html","theme":"canoe club links","retroStrength":5,"signals":["last changed 1997","encoding artifacts","text menu","link directory"]},
+    {"country":"SE","name":"Stockholms Kanotförbund","url":"https://stockholmkanot.se/","theme":"regional canoe federation","retroStrength":4,"signals":["board notices","meeting documents","PDF downloads","long news"]},
+    {"country":"SE","name":"Westerviks Kanotklubb","url":"https://westervikskanotklubb.se/","theme":"canoe club","retroStrength":3,"signals":["centenary video","newsletter subscription","news list","events"]},
+    {"country":"SE","name":"Brunnsvikens Kanotklubb","url":"https://www.bkk.se/","theme":"canoe club","retroStrength":2,"signals":["history","news cards","important links","social feed"]}
+  ]
+}

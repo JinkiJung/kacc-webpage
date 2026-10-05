@@ -1,10 +1,6 @@
 (() => {
   const STORAGE_KEY = 'kacc-site-data-v2';
   const app = document.querySelector('#app');
-  const themeSelect = document.querySelector('#theme-select');
-  const pageSelect = document.querySelector('#page-select');
-  const autoButton = document.querySelector('#auto-theme');
-  const rotationStatus = document.querySelector('#rotation-status');
   const params = new URLSearchParams(location.search);
   let data;
   let destroyGuestbook;
@@ -17,47 +13,10 @@
   const currentPage = () => pageMap()[params.get('page')] ? params.get('page') : 'home';
   const pad = value => String(value).padStart(2, '0');
 
-  function seoulParts(date = new Date()) {
-    const parts = new Intl.DateTimeFormat('en-CA', {
-      timeZone: data.rotation.timezone,
-      year: 'numeric', month: '2-digit', day: '2-digit',
-      hour: '2-digit', minute: '2-digit', second: '2-digit',
-      hourCycle: 'h23', weekday: 'short'
-    }).formatToParts(date);
-    return Object.fromEntries(parts.map(part => [part.type, part.value]));
-  }
-
-  function autoTheme(date = new Date()) {
-    const p = seoulParts(date);
-    const localMs = Date.UTC(+p.year, +p.month - 1, +p.day, +p.hour, +p.minute, +p.second);
-    const weekday = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(p.weekday);
-    const daysSinceMonday = (weekday + 6) % 7;
-    let mondayOne = Date.UTC(+p.year, +p.month - 1, +p.day - daysSinceMonday, 1, 0, 0);
-    if (daysSinceMonday === 0 && +p.hour < 1) mondayOne -= 7 * 86400000;
-    const anchor = new Date(data.rotation.anchorMonday);
-    const a = seoulParts(anchor);
-    const anchorLocal = Date.UTC(+a.year, +a.month - 1, +a.day, 1, 0, 0);
-    const week = Math.floor((mondayOne - anchorLocal) / (7 * 86400000));
-    const pairIndex = ((week % data.rotation.pairs.length) + data.rotation.pairs.length) % data.rotation.pairs.length;
-    const period = +p.hour >= 13 || +p.hour < 1 ? 1 : 0;
-    return {
-      id: data.rotation.pairs[pairIndex][period],
-      pairIndex,
-      period: period ? '오후' : '오전',
-      clock: `${p.year}.${p.month}.${p.day} ${pad(p.hour)}:${p.minute} KST`,
-      localMs
-    };
-  }
-
-  function selectedTheme() {
-    const requested = params.get('theme');
-    return data.themes.find(theme => theme.id === requested) || data.themes.find(theme => theme.id === autoTheme().id);
-  }
+  const selectedTheme = () => data.themes.find(theme => theme.id === '01');
 
   function route(page, label, className = '') {
     const next = new URLSearchParams();
-    const fixedTheme = params.get('theme');
-    if (fixedTheme) next.set('theme', fixedTheme);
     if (page !== 'home') next.set('page', page);
     const query = next.toString();
     return `<a class="${className}" href="${query ? `?${query}` : './'}">${esc(label)}</a>`;
@@ -71,7 +30,6 @@
 
   function routeHref(page) {
     const next = new URLSearchParams();
-    if (params.get('theme')) next.set('theme', params.get('theme'));
     if (page !== 'home') next.set('page', page);
     return next.toString() ? `?${next}` : './';
   }
@@ -216,7 +174,9 @@
     return `<div class="notice-list">${data.board.map(item => `<article class="notice-entry"><div class="notice-meta"><span>${esc(item.category)}</span><time>${esc(item.date)}</time></div><h2>${esc(item.title)}</h2><p>${esc(item.body)}</p><small>작성자 ${esc(item.author)}</small></article>`).join('')}</div>`;
   }
 
-  function guestbookPage() { return window.KaccGuestbook.markup(); }
+  function guestbookPage() {
+    return window.KaccGuestbook.markup();
+  }
 
   function contactPage() {
     return `<div class="contact-card"><p class="contact-email"><a href="mailto:${esc(data.meta.email)}">${esc(data.meta.email)}</a></p><p>이메일을 보내주시면 확인 후 연락드리겠습니다.</p></div>`;
@@ -248,46 +208,20 @@
     return `<footer class="site-footer"><div><b>${esc(data.meta.siteName)}</b></div><nav aria-label="전체 페이지">${data.pages.map(page => route(page.id, page.short)).join('')}</nav><p>마지막 갱신 ${esc(data.meta.updated)} · ${esc(data.meta.email)}</p></footer>`;
   }
 
-  function setupControls(theme) {
-    themeSelect.innerHTML = data.themes.map(item => `<option value="${item.id}" ${item.id === theme.id ? 'selected' : ''}>${item.id}</option>`).join('');
-    pageSelect.innerHTML = data.pages.map(item => `<option value="${item.id}" ${item.id === currentPage() ? 'selected' : ''}>${esc(item.label)}</option>`).join('');
-    themeSelect.onchange = () => setRoute(themeSelect.value, pageSelect.value);
-    pageSelect.onchange = () => setRoute(params.get('theme'), pageSelect.value);
-    autoButton.onclick = () => setRoute(null, pageSelect.value);
-    updateRotationLabel();
-  }
-
-  function setRoute(theme, page) {
-    const next = new URLSearchParams();
-    if (theme) next.set('theme', theme);
-    if (page && page !== 'home') next.set('page', page);
-    location.search = next.toString();
-  }
-
-  function updateRotationLabel() {
-    const auto = autoTheme();
-    const fixed = params.get('theme');
-    rotationStatus.textContent = fixed
-      ? `수동 ${fixed} · 자동은 ${auto.id} (${auto.period})`
-      : `자동 ${auto.id} · ${auto.period} · ${auto.clock}`;
-  }
-
   function render() {
     destroyGuestbook?.();
     const theme = selectedTheme();
     const legacy = window.createLegacyRenderer(data, { route, esc });
     document.body.dataset.theme = theme.id;
     document.body.className = legacy.themeClass(theme.id);
-    document.title = `${currentPage() === 'home' ? theme.id : pageMap()[currentPage()].label} — ${data.meta.siteName}`;
+    document.title = currentPage() === 'home' ? data.meta.siteName : `${pageMap()[currentPage()].label} — ${data.meta.siteName}`;
     app.innerHTML = currentPage() === 'home'
       ? legacy.home(theme.id)
       : legacy.subpage(theme.id, renderSubpageContent(currentPage()));
     if (currentPage() === 'guestbook') destroyGuestbook = window.KaccGuestbook.mount(app.querySelector('.kacc-guestbook'));
-    setupControls(theme);
-    setInterval(updateRotationLabel, 30000);
   }
 
-  fetch('site-data.json?v=10')
+  fetch('site-data.json?v=12')
     .then(response => {
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       return response.json();
@@ -297,6 +231,8 @@
       data = saved ? JSON.parse(saved) : json;
       delete data.meta.notice;
       delete data.contact;
+      if (data.meta.logo === 'assets/images/kacc-logo.png') data.meta.logo = json.meta.logo;
+      if (data.meta.email === 'paddle@example.org') data.meta.email = json.meta.email;
       const legacyOrganization = data.meta.webmaster === '이수민'
         || data.club?.officers?.some(item => ['김물결', '박노을', '이갈대', '최여울'].includes(item.name));
       if (legacyOrganization) {
