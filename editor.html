@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="한국 아마추어 카누 클럽 site-data.json 편집기">
+  <title>사이트 데이터 편집실 — KACC</title>
+  <link rel="icon" href="assets/images/kacc-logo.png">
+  <link rel="stylesheet" href="assets/css/editor.css?v=1">
+</head>
+<body>
+  <header class="editor-header">
+    <div>
+      <p>KACC CONTENT DESK</p>
+      <h1>사이트 데이터 편집실</h1>
+      <span>한 번 입력한 내용을 10개 테마에서 함께 사용합니다.</span>
+    </div>
+    <a class="preview-link" href="index.html" target="_blank" rel="noopener">웹사이트 보기 ↗</a>
+  </header>
+
+  <div class="editor-tabs" role="tablist" aria-label="데이터 구역">
+    <button type="button" class="active" data-tab="common" role="tab">공용 데이터</button>
+    <button type="button" data-tab="themes" role="tab">테마별 데이터</button>
+    <button type="button" data-tab="json" role="tab">JSON 확인</button>
+  </div>
+
+  <main class="editor-layout">
+    <aside class="editor-guide">
+      <h2>사용 방법</h2>
+      <ol>
+        <li>공용 콘텐츠를 입력합니다.</li>
+          <li>테마별 고유 문구와 메뉴를 정합니다.</li>
+        <li><b>저장 및 즉시 적용</b>을 누릅니다.</li>
+        <li>배포할 때 JSON을 내려받아 저장소 파일과 교체합니다.</li>
+      </ol>
+        <p>편집기를 열 때마다 site-data.json을 초기값으로 불러옵니다. 브라우저 저장본은 현재 주소의 웹사이트에만 적용되며, GitHub Pages 전체 방문자에게 적용하려면 내려받은 파일을 커밋해야 합니다.</p>
+      <div class="save-state" id="save-state" aria-live="polite">원본 데이터를 불러오는 중…</div>
+    </aside>
+
+    <div class="editor-main">
+      <section id="common-panel" class="tab-panel active" role="tabpanel"></section>
+      <section id="themes-panel" class="tab-panel" role="tabpanel"></section>
+      <section id="json-panel" class="tab-panel" role="tabpanel">
+        <div class="section-head"><div><p>ADVANCED</p><h2>JSON 미리보기</h2></div><button type="button" id="copy-json" class="secondary">JSON 복사</button></div>
+        <p class="section-note">이 내용이 그대로 `site-data.json`이 됩니다. 직접 수정하지 않고 다른 입력 항목에서 편집하세요.</p>
+        <pre id="json-preview"></pre>
+      </section>
+    </div>
+  </main>
+
+  <footer class="action-bar">
+    <div>
+      <button type="button" id="save-data" class="primary">저장 및 즉시 적용</button>
+      <button type="button" id="download-data">site-data.json 내려받기</button>
+      <label class="import-button">JSON 불러오기<input id="import-data" type="file" accept="application/json,.json"></label>
+    </div>
+    <button type="button" id="reset-data" class="danger">브라우저 저장본 초기화</button>
+  </footer>
+
+  <template id="empty-message"><p class="empty-message">아직 항목이 없습니다.</p></template>
+  <script src="assets/js/theme-options.js?v=5" defer></script>
+  <script src="assets/js/editor.js?v=11" defer></script>
+</body>
+</html>

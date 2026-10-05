@@ -1,0 +1,16 @@
+.kacc-guestbook { text-align: left; min-width: 0; }
+.kacc-guestbook [hidden] { display: none !important; }
+.kacc-guestbook .guestbook-entry-content { flex: 1; min-width: 0; }
+.kacc-guestbook .guestbook-message { white-space: pre-wrap; overflow-wrap: anywhere; }
+.kacc-guestbook h2 { overflow-wrap: anywhere; }
+.kacc-guestbook button, .kacc-guestbook summary { cursor: pointer; }
+.kacc-guestbook button:disabled { cursor: wait; opacity: .65; }
+.kacc-guestbook .mock-form { max-width: 100%; box-sizing: border-box; }
+.kacc-guestbook input, .kacc-guestbook textarea { box-sizing: border-box; max-width: 100%; }
+.kacc-guestbook .guestbook-delete-form { display: grid; gap: .5rem; padding-block: .75rem; }
+.kacc-guestbook .guestbook-delete-form input { display: block; width: 100%; padding: .5rem; }
+.kacc-guestbook .guestbook-delete-form button { justify-self: start; }
+.kacc-guestbook .guestbook-key-panel { margin-block: 1rem; border: 2px solid currentColor; padding: 1rem; }
+.kacc-guestbook .guestbook-key-panel input { display: block; width: 100%; font-family: monospace; padding: .6rem; margin-block: .5rem; }
+.kacc-guestbook :focus-visible { outline: 2px solid currentColor; outline-offset: 3px; }
+@media(max-width: 480px) { .kacc-guestbook article { gap: .5rem; padding: .75rem; } .kacc-guestbook .avatar { display: none; } }

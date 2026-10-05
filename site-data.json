@@ -1,0 +1,157 @@
+{
+  "meta": {
+    "siteName": "한국 아마추어 카누 클럽",
+    "shortName": "KACC",
+    "logo": "assets/images/kacc-logo.png",
+    "englishName": "Korea Amateur Canoe Club",
+    "webmaster": "정진기",
+    "tagline": "강과 바다를 천천히 읽는 사람들의 모임",
+    "description": "이제 막 문을 연 한국 아마추어 카누 클럽입니다. 카누를 처음 만나는 사람부터 오래 노를 저어 온 사람까지 함께 물길의 정보와 이야기를 만들어 갑니다.",
+    "established": "2026",
+    "location": "대한민국의 강과 호수",
+    "email": "paddle@example.org",
+    "updated": "2026-10-04"
+  },
+  "rotation": {
+    "timezone": "Asia/Seoul",
+    "anchorMonday": "2026-10-05T01:00:00+09:00",
+    "morningStarts": "01:00",
+    "afternoonStarts": "13:00",
+    "pairs": [["01", "02"], ["03", "04"], ["05", "06"], ["07", "08"], ["09", "10"]]
+  },
+  "pages": [
+    {"id": "home", "label": "첫 화면", "short": "처음"},
+    {"id": "club", "label": "클럽 소개", "short": "회원 가입"},
+    {"id": "conditions", "label": "오늘의 물길", "short": "물길"},
+    {"id": "events", "label": "행사 달력", "short": "일정"},
+    {"id": "gallery", "label": "사진첩", "short": "사진"},
+    {"id": "stories", "label": "물 위의 옛 이야기", "short": "옛 이야기"},
+    {"id": "launch-points", "label": "한국의 카누 런치 포인트", "short": "카누 런치 포인트"},
+    {"id": "seasons", "label": "계절별 카누의 매력", "short": "계절별 카누"},
+    {"id": "canoe-vs-kayak", "label": "카누와 카약의 차이", "short": "카누와 카약 차이"},
+    {"id": "courses", "label": "강습과 안전", "short": "강습"},
+    {"id": "resources", "label": "자료실", "short": "자료"},
+    {"id": "board", "label": "공지", "short": "공지"},
+    {"id": "guestbook", "label": "방명록", "short": "방명록"},
+    {"id": "contact", "label": "연락처", "short": "연락"}
+  ],
+  "themes": [
+    {"id": "01", "menu": ["home", "board", "club", "launch-points", "seasons", "canoe-vs-kayak", "courses", "gallery", "guestbook", "contact"]},
+    {"id": "02", "menu": ["home", "club", "launch-points", "seasons", "canoe-vs-kayak"]},
+    {"id": "03", "menu": ["home", "board", "club", "launch-points", "seasons", "canoe-vs-kayak", "gallery"]},
+    {"id": "04", "menu": ["home", "club", "launch-points", "seasons", "canoe-vs-kayak", "gallery"]},
+    {"id": "05", "menu": ["home", "conditions", "club", "launch-points", "seasons", "canoe-vs-kayak", "contact"]},
+    {"id": "06", "menu": ["home", "board", "club", "launch-points", "seasons", "canoe-vs-kayak", "gallery", "contact"]},
+    {"id": "07", "menu": ["home", "club", "launch-points", "seasons", "canoe-vs-kayak"]},
+    {"id": "08", "menu": ["home", "club", "launch-points", "seasons", "canoe-vs-kayak", "board", "gallery"]},
+    {"id": "09", "menu": ["home", "board", "club", "launch-points", "seasons", "canoe-vs-kayak", "gallery"]},
+    {"id": "10", "menu": ["home", "club", "launch-points", "seasons", "canoe-vs-kayak", "gallery"]}
+  ],
+  "conditions": {
+    "place": "한강 상류 연습 수역",
+    "status": "연습 가능",
+    "temperature": "18°C",
+    "waterTemperature": "15°C",
+    "wind": "서풍 2.4 m/s",
+    "waterLevel": "보통",
+    "visibility": "좋음",
+    "updatedAt": "오전 08:30",
+    "advice": "오후에는 바람이 조금 강해질 수 있습니다. 초보자는 오전 조를 권합니다."
+  },
+  "announcements": [
+    {"date": "10.04", "title": "회장 임명을 축하드립니다.", "body": "회원 과반수 이상의 동의로 정진기가 회장에 임명되었습니다. 찬성표가 회원 수보다 빠르게 모였다는 소문이 있습니다."},
+    {"date": "10.03", "title": "웹마스터 임명을 축하드립니다.", "body": "회원 과반수 이상의 동의로 정진기가 웹마스터에 임명되었습니다. 반대표는 아직 ‘페이지를 찾을 수 없음’ 상태입니다."},
+    {"date": "10.02", "title": "행동대장 임명을 축하드립니다.", "body": "회원 과반수 이상의 동의로 정진기가 행동대장에 임명되었습니다. 투표가 끝나기도 전에 카누를 들고 출발했다는 점이 결정적이었습니다."}
+  ],
+  "events": [
+    {"date": "10월 10일", "time": "09:00", "title": "초보자 잔잔한 물 연습", "place": "동쪽 선착장", "note": "정원 8명"},
+    {"date": "10월 17일", "time": "07:30", "title": "갈대길 아침 패들링", "place": "버드나무 런치", "note": "개인 장비 지참"},
+    {"date": "10월 24일", "time": "14:00", "title": "장비 손보는 날", "place": "클럽 창고", "note": "따뜻한 차 제공"},
+    {"date": "11월 01일", "time": "10:00", "title": "늦가을 안전 세미나", "place": "마을 회관", "note": "누구나 참석"}
+  ],
+  "photos": [
+    {"src": "assets/images/IMG_0493.jpeg", "alt": "카누에서 바라본 물 위의 기암과 소나무", "title": "기암을 돌아가는 물길", "caption": "잔잔한 물 위에서 바위와 소나무 사이의 길을 바라봅니다."},
+    {"src": "assets/images/IMG_0496.jpeg", "alt": "나무가 우거진 좁은 물길을 카누로 지나는 모습", "title": "초록 물길 안쪽으로", "caption": "낮게 드리운 나무 아래로 천천히 노를 젓습니다."},
+    {"src": "assets/images/IMG_0505.jpeg", "alt": "강가에서 카누와 패들을 준비하는 모습", "title": "출항 전 준비", "caption": "물에 나가기 전 카누와 패들, 짐을 차례로 점검합니다."},
+    {"src": "assets/images/IMG_0508.jpeg", "alt": "구명조끼를 입고 함께 카누를 타는 사람들", "title": "함께 젓는 오후", "caption": "구명조끼를 갖춰 입고 같은 방향으로 물길을 나아갑니다."},
+    {"src": "assets/images/IMG_0863.jpeg", "alt": "숲이 가까운 물길에서 카누를 타는 사람들", "title": "숲 가까이에서", "caption": "물가의 나무를 따라 조용한 구간을 통과합니다."},
+    {"src": "assets/images/IMG_3388.jpeg", "alt": "도시 수변에서 카누 옆에 선 두 사람", "title": "도시 곁의 작은 출항지", "caption": "도시와 풀밭 사이의 물가도 좋은 출발점이 됩니다."},
+    {"src": "assets/images/IMG_3471.jpeg", "alt": "넓은 물 위 카누에서 쉬며 바라본 풍경", "title": "넓은 물에서 잠시 쉬기", "caption": "바람이 잦아든 수면 위에서 잠시 노를 내려놓습니다."},
+    {"src": "assets/images/IMG_4059.jpeg", "alt": "바위와 숲이 비친 물가에 놓인 카누", "title": "바위가 비친 물가", "caption": "출항을 앞둔 카누와 고요한 수면의 풍경입니다."}
+  ],
+  "features": [
+    {"page": "stories", "kicker": "강가 기록", "title": "물 위의 옛 이야기", "summary": "나루터, 작은 배, 오래된 물길 이름에 얽힌 이야기를 모읍니다."},
+    {"page": "launch-points", "kicker": "출발 안내", "title": "한국의 카누 런치 포인트", "summary": "출발 전 확인할 접근로·바람·수위·회수 동선을 기록하는 방법입니다."},
+    {"page": "seasons", "kicker": "사계절", "title": "계절별 카누의 매력", "summary": "봄 물빛부터 겨울의 고요까지 계절마다 달라지는 준비와 풍경."},
+    {"page": "canoe-vs-kayak", "kicker": "처음 읽기", "title": "카누와 카약의 차이", "summary": "배의 형태, 패들, 자세와 쓰임을 쉬운 말로 비교합니다."}
+  ],
+  "articles": {
+    "stories": {
+      "title": "물 위의 옛 이야기",
+      "lead": "물길은 지도보다 오래 기억합니다. 이곳은 회원들이 들은 강가의 말과 사라진 나루의 풍경을 모으는 작은 기록실입니다.",
+      "sections": [
+        {"heading": "버드나무 나루의 저녁", "body": "해가 산 뒤로 넘어가면 나루의 줄배가 마지막으로 움직였다고 합니다. 지금은 흔적이 적지만 완만한 둔덕과 오래된 계류 말뚝이 옛 자리를 짐작하게 합니다."},
+        {"heading": "배에 이름을 붙이는 까닭", "body": "회원들은 새 배에 물새, 바람, 강가 식물의 이름을 붙입니다. 이름을 부르는 일은 장비를 오래 돌보고 함께 탄 사람을 기억하는 작은 의식이 됩니다."},
+        {"heading": "우리의 기록 방법", "body": "사진 한 장, 대략적인 날짜, 당시의 날씨와 함께 들은 이야기를 적습니다. 사실로 단정하기 어려운 부분은 구전임을 분명히 표시합니다."}
+      ]
+    },
+    "launch-points": {
+      "title": "한국의 카누 런치 포인트 모음",
+      "lead": "아래 장소는 실제 지점 안내가 아닌 기록 양식 예시입니다. 출항 전에는 출입 허가, 수위, 방류, 기상과 구조 체계를 반드시 별도로 확인해야 합니다.",
+      "sections": [
+        {"heading": "상류형 출발점", "body": "완만한 흙 경사로를 고르고 상·하류 회수 지점을 함께 정합니다. 비가 온 뒤에는 유속과 떠내려오는 물체를 먼저 살핍니다."},
+        {"heading": "호수형 출발점", "body": "바람을 피할 수 있는 만 안쪽이 좋습니다. 주차장에서 물가까지 운반 거리와 오후 횡풍을 기록합니다."},
+        {"heading": "해안형 출발점", "body": "조석, 너울, 이안류, 선박 통항을 모두 확인합니다. 경험자 동행과 통신·구조 계획이 없는 출항은 하지 않습니다."}
+      ]
+    },
+    "seasons": {
+      "title": "계절별 카누의 매력",
+      "lead": "같은 물길도 계절마다 다른 얼굴을 보여 줍니다. 아름다움과 함께 달라지는 위험을 읽는 것이 먼저입니다.",
+      "sections": [
+        {"heading": "봄 — 얕은 빛과 새 물", "body": "물가는 부드럽지만 수온은 아직 낮습니다. 얇은 겉옷보다 젖었을 때 체온을 지킬 복장을 준비합니다."},
+        {"heading": "여름 — 긴 낮과 갑작스러운 날씨", "body": "이른 아침이 쾌적합니다. 소나기, 낙뢰, 강한 자외선을 피할 종료 기준을 출발 전에 정합니다."},
+        {"heading": "가을 — 맑은 시야와 갈대길", "body": "풍경이 선명하고 장거리 운항이 즐겁습니다. 해가 짧아지므로 회항 시간을 여유 있게 잡습니다."},
+        {"heading": "겨울 — 가장 조용한 물", "body": "숙련자에게도 저체온 위험이 큽니다. 방수·보온 장비, 동료 구조 훈련, 짧은 동선을 갖춘 경우에만 운항합니다."}
+      ]
+    },
+    "canoe-vs-kayak": {
+      "title": "카누와 카약의 차이",
+      "lead": "둘 다 패들로 움직이는 작은 배지만 전형적인 형태와 타는 방식이 다릅니다. 현대 레저용 제품에는 중간 형태도 많습니다.",
+      "sections": [
+        {"heading": "카누", "body": "대체로 위가 열린 선체에서 높은 좌석에 앉거나 무릎을 꿇고, 한쪽 날이 달린 싱글 블레이드 패들을 사용합니다. 짐을 싣고 잔잔한 물을 여행하기 좋습니다."},
+        {"heading": "카약", "body": "대체로 낮은 좌석에 다리를 앞으로 두고 앉으며 양쪽에 날이 달린 더블 블레이드 패들을 사용합니다. 닫힌 데크형과 위에 올라앉는 형태가 있습니다."},
+        {"heading": "무엇을 고를까", "body": "정답은 물의 성격, 동승 인원, 짐, 운반 방법과 원하는 활동에 따라 달라집니다. 처음이라면 두 종류를 모두 안전 강습에서 체험해 보는 편이 좋습니다."}
+      ]
+    }
+  },
+  "club": {
+    "intro": "이제 막 문을 연 단체로, 기록을 좋아하고 서두르지 않으며 혼자보다 함께 물에 나가는 아마추어 카누 모임입니다.",
+    "principles": ["구명조끼는 물가에 도착하기 전에 착용합니다.", "기상과 수온이 맞지 않으면 돌아섭니다.", "처음 온 사람에게 장비와 용어를 천천히 설명합니다.", "떠난 자리에는 물결 외에는 남기지 않습니다."],
+    "officers": [
+      {"role": "회장", "name": "정진기", "note": "단체 운영과 활동 방향"},
+      {"role": "웹마스터", "name": "정진기", "note": "웹사이트와 온라인 기록"},
+      {"role": "행동대장", "name": "정진기", "note": "카누 진수와 현장 활동"}
+    ]
+  },
+  "courses": [
+    {"name": "처음 타는 카누", "level": "입문", "duration": "3시간", "contents": "착용 장비, 승하선, 기본 전진·정지, 뒤집힘 대응"},
+    {"name": "잔잔한 물 동행 운항", "level": "기초", "duration": "반나절", "contents": "대형 유지, 신호, 바람 읽기, 동료 보조"},
+    {"name": "리더 안전 워크숍", "level": "경험자", "duration": "1일", "contents": "계획 수립, 위험 평가, 회수와 비상 연락"}
+  ],
+  "resources": [
+    {"title": "출항 전 점검표", "type": "인쇄용 문서", "note": "사람·장비·날씨·연락망 확인"},
+    {"title": "공용 장비 대여표", "type": "기록 양식", "note": "반출·반납과 손상 상태 기록"},
+    {"title": "물길 관찰 노트", "type": "현장 양식", "note": "바람·수위·장애물·회수 지점 기록"},
+    {"title": "초보자 용어 카드", "type": "한 장 안내", "note": "방향·패들·구조 신호 설명"}
+  ],
+  "board": [
+    {"category": "임명", "date": "2026.10.04", "title": "회장 임명을 축하드립니다.", "body": "회원 과반수 이상의 동의로 정진기가 회장에 임명되었습니다. 찬성표가 회원 수보다 빠르게 모였다는 소문이 있습니다.", "author": "정진기"},
+    {"category": "임명", "date": "2026.10.03", "title": "웹마스터 임명을 축하드립니다.", "body": "회원 과반수 이상의 동의로 정진기가 웹마스터에 임명되었습니다. 반대표는 아직 ‘페이지를 찾을 수 없음’ 상태입니다.", "author": "정진기"},
+    {"category": "임명", "date": "2026.10.02", "title": "행동대장 임명을 축하드립니다.", "body": "회원 과반수 이상의 동의로 정진기가 행동대장에 임명되었습니다. 투표가 끝나기도 전에 카누를 들고 출발했다는 점이 결정적이었습니다.", "author": "정진기"}
+  ],
+  "guestbook": [
+    {"name": "갈대새", "date": "10월 3일", "message": "처음 따라간 아침 운항이 참 조용하고 좋았습니다."},
+    {"name": "푸른패들", "date": "9월 26일", "message": "장비 손보는 날에 오래된 카누가 다시 반짝였습니다."},
+    {"name": "나루지기", "date": "9월 14일", "message": "다음에는 옛 나루 이야기 한 편을 들고 오겠습니다."}
+  ]
+}
