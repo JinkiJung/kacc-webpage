@@ -1,0 +1,6 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {"test": "playwright test", "test:local": "playwright test --config=local.config.mjs"},
+  "devDependencies": {"@playwright/test": "1.56.1"}
+}
