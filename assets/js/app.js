@@ -15,11 +15,14 @@
 
   const selectedTheme = () => data.themes.find(theme => theme.id === '01');
 
-  function route(page, label, className = '') {
+  function route(page, label, className = '', withIcon = false) {
     const next = new URLSearchParams();
     if (page !== 'home') next.set('page', page);
     const query = next.toString();
-    return `<a class="${className}" href="${query ? `?${query}` : './'}">${esc(label)}</a>`;
+    const content = withIcon
+      ? `<img class="retro-nav-icon" src="assets/images/nav-icons/${encodeURIComponent(page)}.png?v=2" alt=""><span class="retro-nav-label">${esc(label)}</span>`
+      : esc(label);
+    return `<a class="${className}" href="${query ? `?${query}` : './'}">${content}</a>`;
   }
 
   const photo = (item, index = 0) => `

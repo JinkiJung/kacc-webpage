@@ -30,12 +30,20 @@ button, input { font: inherit; }
 /* 01 — Riddersholm weighted */
 .s01 { background:#f5f2df; font:16px Georgia,"Times New Roman",serif; }
 .s01 a { color:#087a36; text-decoration:underline; }
-.s01 .page { width:min(1180px,100%); margin:0 auto; display:grid; grid-template-columns:150px 1fr; gap:24px; padding:12px; }
+.s01 .page { width:min(1180px,100%); margin:0 auto; display:grid; grid-template-columns:174px 1fr; gap:24px; padding:12px; }
 .s01 .side { padding-top:4px; }
 .s01 .tiny-logo { height:74px; border:1px solid #998b53; display:grid; place-items:center; color:#064f2b; background:#e7e4cd; font-size:13px; margin-bottom:10px; }
 .s01 .tiny-logo .club-logo { width:62px; height:62px; }
 .s01 .nav a { display:block; text-align:center; padding:8px 2px; border-top:1px solid #c8b667; color:#222; text-decoration:none; font-size:13px; }
 .s01 .nav a:last-child { border-bottom:1px solid #c8b667; }
+.s01 .retro-icon-nav { display:grid; grid-template-columns:1fr 1fr; gap:7px 5px; padding:6px 4px 9px; border-block:1px solid #c8b667; background:#ece8cf; }
+.s01 .retro-icon-nav a { min-width:0; padding:4px 1px 5px; border:0; color:#173468; text-decoration:none; font:11px/1.2 Gulim,"굴림",sans-serif; }
+.s01 .retro-icon-nav a:last-child { border-bottom:0; }
+.s01 .retro-nav-icon { width:54px; height:54px; margin:0 auto 2px; object-fit:contain; image-rendering:pixelated; image-rendering:crisp-edges; filter:drop-shadow(1px 2px 1px rgb(50 48 36 / 28%)); transition:transform .12s ease; }
+.s01 .retro-nav-label { display:block; min-height:2.4em; overflow-wrap:anywhere; text-decoration:underline; text-underline-offset:2px; }
+.s01 .retro-icon-nav a:hover .retro-nav-icon,
+.s01 .retro-icon-nav a:focus-visible .retro-nav-icon { transform:translateY(-2px); }
+.s01 .retro-icon-nav a:focus-visible { outline:2px dotted #173468; outline-offset:2px; }
 .s01 .banner { text-align:center; font-size:34px; border-top:3px solid #bca456; padding:4px; margin-bottom:18px; }
 .s01 h1,.s01 h2 { color:#075f32; }
 .s01 h1 { font-size:28px; margin:0 0 8px; }
@@ -365,7 +373,10 @@ button, input { font: inherit; }
 
 @media (max-width:760px) {
   .s01 .page,.s03 .columns,.s06 .dashboard,.s08 .page,.s10 .story-layout,.s12 .office-shell,.s13 .archive-shell>main,.s15 .mag-body,.s16 .retro3 { grid-template-columns:1fr; }
-  .s01 .nav { display:grid; grid-template-columns:1fr 1fr; }
+  .s01 .page { grid-template-columns:1fr; }
+  .s01 .side { display:grid; grid-template-columns:74px 1fr; align-items:start; gap:10px; }
+  .s01 .tiny-logo { margin:0; }
+  .s01 .retro-icon-nav { grid-template-columns:repeat(5,minmax(68px,1fr)); overflow-x:auto; }
   .gallery-grid { grid-template-columns:1fr; }
   .s02 .guestbook-title { align-items:center; }
   .s02 h1 { font-size:30px; }

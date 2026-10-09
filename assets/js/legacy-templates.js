@@ -54,7 +54,7 @@
       ['gallery', '활동 사진'], ['guestbook', '방명록'], ['contact', '연락처']
     ];
     const navLabel = (page, fallback) => source.pages.find(item => item.id === page)?.short || fallback;
-    const navLinks = (items = navItems) => items.map(([page, label]) => route(page, navLabel(page, label))).join('');
+    const navLinks = (items = navItems, withIcons = false) => items.map(([page, label]) => route(page, navLabel(page, label), '', withIcons)).join('');
     const newsLinks = (limit = 5) => D.news.slice(0, limit).map(item => `<li>${route('board', item.title)} <small>${esc(item.date)}</small></li>`).join('');
     const eventRows = (limit = 4) => D.events.slice(0, limit).map(item => `<li><strong>${esc(item.date)}</strong> ${route('events', item.title)}<br><small>${esc(item.time)} · ${esc(item.place)}</small></li>`).join('');
     const gallery = (themeId, title = front(themeId, 'galleryHeading', '활동 갤러리')) => {
@@ -67,7 +67,7 @@
     const homes = {
       '01': () => `
         <a class="skip" href="#main-content">본문 바로가기</a>
-        <div class="page"><aside class="side"><div class="tiny-logo">${logo()}</div><nav class="nav">${navLinks()}</nav></aside>
+        <div class="page"><aside class="side"><div class="tiny-logo">${logo()}</div><nav class="nav retro-icon-nav">${navLinks(navItems, true)}</nav></aside>
         <main id="main-content"><div class="banner">${esc(D.name)}</div>${themeImg('01','portrait',1,'portrait')}<h1>${esc(front('01','welcomeHeading','우리 홈페이지에 오신 것을 환영합니다'))}</h1><p>${esc(D.welcome)}</p><p class="signature">${esc(front('01','webmasterRole','웹마스터'))} ${esc(D.webmaster)}<br>${esc(D.location)}</p>
         <section class="news"><div>${themeImg('01','news',2)}<p class="photo-caption">${esc(p(photoIndex('01','news',2)).caption)}</p></div><div><h2>${esc(front('01','newsHeading','최근 소식'))}</h2><ul>${newsLinks()}</ul></div></section>
         <h2>${esc(front('01','clubHeading','우리 모임은'))}</h2><p>${esc(source.club.intro)} ${route('stories', front('01','clubStoryLink','클럽의 옛날 이야기 보기'))}</p>
@@ -124,7 +124,7 @@
     function simpleChrome(themeId, content) {
       const sideNav = `<nav>${navLinks()}</nav>`;
       const blocks = {
-        '01': `<div class="page"><aside class="side"><div class="tiny-logo">${logo()}</div><nav class="nav">${navLinks()}</nav></aside><main id="main-content"><div class="banner">${esc(D.name)}</div>${pageHeading(content)}</main></div>`,
+        '01': `<div class="page"><aside class="side"><div class="tiny-logo">${logo()}</div><nav class="nav retro-icon-nav">${navLinks(navItems, true)}</nav></aside><main id="main-content"><div class="banner">${esc(D.name)}</div>${pageHeading(content)}</main></div>`,
         '02': `<main id="main-content" class="wrap"><center class="legacy-center"><div class="guestbook-title"><span class="devil">${logo()}</span><h1>${esc(D.name)}</h1></div><div class="road"></div></center>${pageHeading(content)}<center><div class="road"></div>${route('home','첫 화면으로')}</center></main>`,
         '03': `<div class="shell"><header class="hero">${themeImg('03','hero',0)}<div class="hero-brand">${logo('theme-logo')}<div><h1>${esc(D.name)}</h1><p>${esc(front('03','heroSubtitle','… 한강 북쪽의 작은 카누 모임 …'))}</p></div></div></header><div class="columns"><aside><nav class="leftnav">${navLinks(navItems.slice(0,5))}</nav><section class="schedule"><h3 class="redbar">${esc(front('03','scheduleHeading'))}</h3><div class="boxbody"><ul class="plain-list">${eventRows(3)}</ul></div></section></aside><main id="main-content" class="main">${pageHeading(content)}</main><aside class="right"><section class="newsbox"><h3 class="redbar">${esc(front('03','newsHeading'))}</h3>${themeImg('03','news',4)}<div class="boxbody"><ul class="plain-list">${newsLinks(3)}</ul></div></section></aside></div></div>`,
         '04': `<div class="shell"><header class="top"><span class="top-logo">${logo()}</span>${navLinks([['club','회원 가입'],['launch-points','카누 런치 포인트'],['seasons','계절별 카누'],['canoe-vs-kayak','카누와 카약 차이'],['gallery','사진첩'],['events','달력']])}</header>${themeImg('04','hero',0,'wide-photo')}<main id="main-content">${pageHeading(content)}</main></div>`,
